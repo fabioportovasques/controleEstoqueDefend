@@ -1,8 +1,8 @@
 <?php
 
-require 'class/pessoa-class.php';
+require 'class/lancamento-class.php';
 
-$pessoa = new Pessoa();
+$lancamento = new Lancamento();
 
 // $lista = $medico->pesquisar();
   foreach ($lista as $item):
@@ -189,7 +189,7 @@ $(function () {
                                             <label>Nome do Responsável</label><span class="campo--obrigatorio">*</span>
 
                                             <?php                                                                 
-                                                         $lista = $pessoa->getPessoas();   
+                                                         $lista = $lancamento->getPessoas();   
                                                   ?>
 
                                               <select class="form-control" name="pessoa_codPessoa" id="pessoa_codPessoa">
@@ -257,13 +257,37 @@ $(function () {
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label>Empresa (Responsável Concerto)</label>
-                                                    <select class="form-control" name="" id="empresaServico_codEmpresa" data-toggle="tooltip" 
+
+                                                    <?php                                                                 
+                                                         $lista = $lancamento->getEmpresa();   
+                                                  ?>
+
+                                                  <select class="form-control" name="empresaServico_codEmpresa" id="pessoa_codPessoa">
+                                                    <option>Selecionar</option>
+                                                    <?php 
+                                                    foreach ($lista as $item):
+                                                    ?>
+                                                    <option value="<?php echo $item['codEmpresa'] ?>">
+
+                                                      <?php echo $item['nomeEmpresa'] ?></option>
+
+
+                                                      <?php endforeach;                                                    
+                                                ?>
+                                             
+                                              </select> 
+
+
+
+
+
+                                                    <!-- <select class="form-control" name="" id="empresaServico_codEmpresa" data-toggle="tooltip" 
                                                     data-placement="bottom" title="Só prencha se o equipamento for para concerto">
                                                         <option>Seleciona uma Opção</option>
                                                         <option>MPE</option>
                                                         <option>outras</option>
-                                                    </select>
-                                                    <input type="hidden" value="1" name="empresaServico_codEmpresa"> 
+                                                    </select> -->
+                                                    <!-- <input type="hidden" value="1" name="empresaServico_codEmpresa">  -->
                                                 </div>        
                                             </div>
 

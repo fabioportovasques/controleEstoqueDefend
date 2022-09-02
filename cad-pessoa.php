@@ -1,16 +1,3 @@
-<?php
-
-require 'class/pessoa-class.php';
-
-$pessoa = new Pessoa();
-
-$lista = $pessoa->pesquisar();
-  foreach ($lista as $item):
-
-
-?>
-<?php endforeach; 
-?>
 
 
 
