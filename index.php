@@ -49,7 +49,7 @@ $(function () {
                           <div class="sb-sidenav-menu">
                               <div class="nav" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
-                                  <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard123" aria-expanded="false" aria-controls="dashboard123">
+                                  <a class="nav-link collapsed" href="index.php" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
                                       <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
                                       DASHBOARD
                                       <div class="sb-sidenav-collapse-arrow"></div>
@@ -68,10 +68,11 @@ $(function () {
                                   </a>
                                   <div class="collapse" id="cadastros" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                       <nav class="sb-sidenav-menu-nested nav">
-                                      <a class="nav-link" id="texto" href="cad-prod.php">Produtos</a>
+                                          <a class="nav-link" id="texto" href="cad-prod.php">Produtos</a>
                                           <a class="nav-link" id="texto" href="cad-empresa.php">Empresas</a>                                                                                
                                           <a class="nav-link" id="texto" href="lancamento.php">Lançamentos</a>                                                                                
                                           <a class="nav-link" id="texto" href="cad-pessoa.php">Pessoa</a>                                                                                
+
 
 
                                       </nav>
@@ -103,11 +104,7 @@ $(function () {
                                           <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
                                           <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
                                       </nav> -->
-                                  </div>  
-                                 
-                                
-                                  
-                          
+                                  </div>                                                            
                       </nav>
               </div>
           </div>
@@ -116,148 +113,31 @@ $(function () {
     <section>
         <div class="dashboard">
 
-        <div class="card--sub--1">
-            <div class="card" >
-                    <div class="card-body">
-                        <h5 class="card-title">Saída de Equipamentos</h5>
-                        <div class="sub--title ">30</div>
-                        <div class="icones--card"><i class="fa-solid fa-check"></i></div>
-                        <a href="#" class="btn btn-success"><span>Acessar</span></a><br />
-                    </div>
-            </div>
-        </div>
-        <div class="card--sub--2">
-            <div class="card">
-                    <div class="card-body">
-                        <h5 class="card-title">Equipamentos em Atraso</h5>
-                        <div class="sub--title dev">10</div>
-                        <div class="icones--card"><i class="fa-solid fa-bell-slash"></i></div>
-                        <a href="#" class="btn btn-success "><span>Acessar</span></a>
-                       
-                    </div>
-            </div>        
-        </div>
-
-        <!-- area do modal para cadastro -->
-
-
-       
-
-        <div class="WindowArea">
-            <div class="WindowBody">
-                <div class="form">
-                    
-                    <form method="POST" action="">
-                        <!--comeco da linha-->
-                        <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <div class="header--prod">Lançamento de Materiais</div>
-                                        <label class="prod">Nome Do Produto</label>
-                                            <input type="text" name="nome-produto" class="form-control" id="nome-produto">
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Data Inícial</label>
-                                            <input type="date" name="data-inicio" class="form-control" id="data-inicio">
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Data Final</label>
-                                            <input type="date" name="data-final" class="form-control" id="data-final">
-                                    </div>        
-                                </div>
-
-                        <!-- FIm da linha-->        
-                        </div>
-    
-                            <!--comeco da linha-->
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Nome do Responsável</label>
-                                            <input type="text" name="nome-responsavel" class="form-control" id="nome-responsavel">
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Autorizado por quem?</label>
-                                        <select class="form-control" name="nome-autorizado" id="nome-autorizado">
-                                            <option>Seleciona uma Opção</option>
-                                            <option>Camila</option>
-                                            <option>Oliveira</option>
-                                            <option>Sandro</option>
-                                            <option>Tati</option>
-                                        </select>
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Quem está liberando o material?</label>
-                                            <input type="text" name="nome-liberado" class="form-control" id="nome-liberado">
-                                    </div>        
-                                </div>
-
-                        <!-- FIm da linha-->        
-                        </div>
-
-                        
-                        <!--comeco da linha-->
-                        <div class="row">
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Situação</label>
-                                    <select class="form-control" name="situacao" id="situacao">
-                                        <option>Seleciona uma Opção</option>
-                                        <option>Encaminhado para Conserto</option>
-                                        <option>Emprestado</option>
-                                    </select>
-                                </div>        
+                <div class="card--sub--1">
+                    <div class="card" >
+                            <div class="card-body">
+                                <h5 class="card-title">Saída de Equipamentos</h5>
+                                <div class="sub--title ">30</div>
+                                <div class="icones--card"><i class="fa-solid fa-check"></i></div>
+                                <a href="#" class="btn btn-success"><span>Acessar</span></a><br />
                             </div>
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>Empresa (Responsável Concerto)</label>
-                                    <select class="form-control" name="situacao" id="situacao" data-toggle="tooltip" 
-                                    data-placement="bottom" title="Só prencha se o equipamento for para concerto">
-                                        <option>Seleciona uma Opção</option>
-                                        <option>MPE</option>
-                                        <option>outras</option>
-                                    </select>
-                                </div>        
-                            </div>
-
-
-
-                            <div class="col-md-4">
-                                <div class="form-group">
-                                    <label>OBS</label>
-                                    <textarea  name="obs" id="obs"  class="outline form-control"></textarea>
-                                </div>        
-                            </div>
-
-                    <!-- FIm da linha-->        
                     </div>
-                    
-                            <div class="buttons">
+                </div>
+                <div class="card--sub--2">
+                    <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Equipamentos em Atraso</h5>
+                                <div class="sub--title dev">10</div>
+                                <div class="icones--card"><i class="fa-solid fa-bell-slash"></i></div>
+                                <a href="#" class="btn btn-success "><span>Acessar</span></a>
+                            
+                            </div>
+                    </div>        
+                </div>
+        </div>  
+    </section>      
 
-                                        <div class="cancelButton" onclick="closeModal()">Cancelar</div>
 
-                                        <div class="cadastrarButton">Cadastrar</div>
-                            </div>    
-                        
-                        </form>
-                    </div>
-            </div>
-        </div>
-       
-                </div>   
-        </div>
-    </section>
-</div>   
 
 <!-- <div class="footer"> 
     Copyright 2022 Desenvolvido por Fábio Vasques

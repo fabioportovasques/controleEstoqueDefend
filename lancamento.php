@@ -63,22 +63,21 @@ $(function () {
     <aside>
         <div class="menu">
        
-                  <div id="layoutSidenav">
+        <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
                       <nav class="sb-sidenav  sb-sidenav-dark"  style="background-color: #0388d1; width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
                               <div class="nav" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
-                                  <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard123" aria-expanded="false" aria-controls="dashboard123">
+                                  <a class="nav-link" href="index.php" style="color: #ffffff;" >
                                       <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
                                       DASHBOARD
                                       <div class="sb-sidenav-collapse-arrow"></div>
                                   </a>
-                                  <div class="collapse" id="dashboard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                      <!-- <nav class="sb-sidenav-menu-nested nav">
-                                          <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
-                                          <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
-                                      </nav> -->
+                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <nav class="sb-sidenav-menu-nested nav">
+                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
+                                      </nav>
                                   </div>                              
 
                                   <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#cadastros" aria-expanded="false" aria-controls="cadastros">
@@ -88,10 +87,11 @@ $(function () {
                                   </a>
                                   <div class="collapse" id="cadastros" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
                                       <nav class="sb-sidenav-menu-nested nav">
-                                      <a class="nav-link" id="texto" href="cad-prod.php">Produtos</a>
+                                          <a class="nav-link" id="texto" href="cad-prod.php">Produtos</a>
                                           <a class="nav-link" id="texto" href="cad-empresa.php">Empresas</a>                                                                                
                                           <a class="nav-link" id="texto" href="lancamento.php">Lançamentos</a>                                                                                
                                           <a class="nav-link" id="texto" href="cad-pessoa.php">Pessoa</a>                                                                                
+
 
 
                                       </nav>
@@ -235,7 +235,14 @@ $(function () {
                                         <div class="col-md-4">
                                             <div class="form-group">
                                                 <label>Quem está liberando o material?</label><span class="campo--obrigatorio">*</span>
-                                                    <input type="text" name="nomeLiberacao" class="form-control" id="nomeLiberacao" placeholder="Quem Está Liberando o Material?">
+                                                <select class="form-control" name="nomeLiberacao" id="nomeLiberacao">
+                                                    <option>Seleciona uma Opção</option>
+                                                    <option>Isabel</option>
+                                                    <option>Camila</option>
+                                                    <option>Simone</option>
+                                                  </select>
+
+                                                    <!-- <input type="text" name="nomeLiberacao" class="form-control" id="nomeLiberacao" placeholder="Quem Está Liberando o Material?"> -->
                                                     <div class="alerta" id="alert-preencher-nomeLiberacao"></div>
 
                                             </div>        

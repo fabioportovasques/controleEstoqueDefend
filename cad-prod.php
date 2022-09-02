@@ -54,16 +54,15 @@ $(function () {
                           <div class="sb-sidenav-menu">
                               <div class="nav" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
-                                  <a class="nav-link collapsed" href="index.php" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard" aria-expanded="false" aria-controls="dashboard">
+                                  <a class="nav-link" href="index.php" style="color: #ffffff;" >
                                       <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
                                       DASHBOARD
                                       <div class="sb-sidenav-collapse-arrow"></div>
                                   </a>
-                                  <div class="collapse" id="dashboard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                      <!-- <nav class="sb-sidenav-menu-nested nav">
-                                          <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
-                                          <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
-                                      </nav> -->
+                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <nav class="sb-sidenav-menu-nested nav">
+                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
+                                      </nav>
                                   </div>                              
 
                                   <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#cadastros" aria-expanded="false" aria-controls="cadastros">
@@ -77,6 +76,7 @@ $(function () {
                                           <a class="nav-link" id="texto" href="cad-empresa.php">Empresas</a>                                                                                
                                           <a class="nav-link" id="texto" href="lancamento.php">Lançamentos</a>                                                                                
                                           <a class="nav-link" id="texto" href="cad-pessoa.php">Pessoa</a>                                                                                
+
 
 
                                       </nav>
@@ -120,6 +120,7 @@ $(function () {
     </aside>
     <section>
                 <div class="form">
+
                     
                     <form method="POST" action="" id="form">
                         <!--comeco da linha-->

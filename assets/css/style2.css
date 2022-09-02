@@ -107,7 +107,7 @@ section{
 
 li {
   
-
+    padding: 20px;
     display: block;
 }
 
@@ -361,6 +361,7 @@ select option{
 
 
 
+
 /*Responsividade */
 
 @media (min-width:2001px) AND (max-width:2500px){
@@ -535,7 +536,7 @@ select option{
     a{
         width:120px;
         height:40px;
-        font-size:10px;
+        font-size:16px;
     }
     
 
@@ -608,7 +609,7 @@ select option{
     a{
         width:120px;
         height:40px;
-        font-size:10px;
+        font-size:16px;
     }
     
 
@@ -677,7 +678,7 @@ select option{
     a{
         width:120px;
         height:40px;
-        font-size:10px;
+        font-size:16px;
     }
     
 
