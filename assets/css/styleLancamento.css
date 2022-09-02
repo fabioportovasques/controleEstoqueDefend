@@ -536,6 +536,12 @@ aparecer caso o campo setucao sejá iformado concerto
     display: none;
  }
 
+ /*desabilita por padrão o campo hidden do select "empresa concerto"*/
+
+ #campoHiddenEmpresa{
+    display: none;
+ }
+
 /* #resultado{
     display: none;
 } */

@@ -114,7 +114,7 @@ public function getPessoas ( ) {
 
 public function getEmpresa ( ) {
 
-    $sql = "select * from empresaServico";
+    $sql = "select * from empresaServico where nomeEmpresa <> 'teste' ";
 
     $sql = $this->pdo->query($sql);
 

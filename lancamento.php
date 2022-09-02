@@ -277,6 +277,7 @@ $(function () {
                                              
                                               </select> 
 
+                                              <input type="hidden" value="1" id="campoHiddenEmpresa" name="empresaServico_codEmpresa">
 
 
 
