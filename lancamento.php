@@ -192,7 +192,7 @@ $(function () {
                                                          $lista = $lancamento->getPessoas();   
                                                   ?>
 
-                                              <select class="form-control" name="pessoa_codPessoa" id="pessoa_codPessoa">
+                                              <select class="form-control" name="pessoa_codPessoa" id="">
                                                 <option>Selecionar</option>
                                                 <?php 
                                                 foreach ($lista as $item):
@@ -256,7 +256,7 @@ $(function () {
 
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label>Empresa (Responsável Concerto)</label>
+                                                    <label id="empresaConcerto">Empresa (Responsável Concerto)</label>
 
                                                     <?php                                                                 
                                                          $lista = $lancamento->getEmpresa();   

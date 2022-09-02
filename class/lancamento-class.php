@@ -133,7 +133,7 @@ public function getEmpresa ( ) {
                     print '<script>window.setTimeout(function(){window.location=\'pesq-medico.php\';}, 4000);</script>';
 
                 }
-}
+}   
 
 
 

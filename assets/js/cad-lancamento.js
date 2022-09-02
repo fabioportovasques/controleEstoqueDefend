@@ -167,4 +167,40 @@ $(function(){
   })
   
   
+  var select = document.querySelector('#situacaoCadastro');
+  var campoConcerto = document.querySelector('#pessoa_codPessoa');
+  var labelConcerto = document.querySelector('#empresaConcerto');
+
+  select.addEventListener("click",function(){
+    
+    // if( (select.value)=('Encaminhado para Concerto'){
+    //   campoConcerto.style.display="block";
+    //   labelConcerto.style.display="block";
+    //   console.log(select.value);
+      
+
+    // }
+
+    if (select.value==='Encaminhado para Conserto'){
+      console.log('acertou');
+    campoConcerto.style.display="block";
+    labelConcerto.style.display="block";
+
+    }else{
+      campoConcerto.style.display="none";
+      labelConcerto.style.display="none";
   
+    }
+
+    
+    // console.log(select.value);
+
+  })
+
+  var opcaoTexto = select.options[select.selectedIndex].text;
+  var opcaoValor = select.options[select.selectedIndex].value;
+
+  $('#situacaoCadastro: selected').text();
+
+  console.log(opcaoValor);
+  console.log(opcaoTexto);

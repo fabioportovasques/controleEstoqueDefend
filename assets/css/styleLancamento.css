@@ -528,6 +528,14 @@ a{
     margin-bottom: 5px;
 }
 
+/* Desabilitar por padrao o campo empresa que só vai 
+aparecer caso o campo setucao sejá iformado concerto 
+ */
+
+ #pessoa_codPessoa, #empresaConcerto{
+    display: none;
+ }
+
 /* #resultado{
     display: none;
 } */
