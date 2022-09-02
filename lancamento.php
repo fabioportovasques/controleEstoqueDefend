@@ -192,22 +192,24 @@ $(function () {
                                                          $lista = $pessoa->getPessoas();   
                                                   ?>
 
-                                              <select class="form-control" name="nomePessoa">
+                                              <select class="form-control" name="pessoa_codPessoa" id="pessoa_codPessoa">
                                                 <option>Selecionar</option>
                                                 <?php 
                                                 foreach ($lista as $item):
                                                 ?>
-                                                <option value="<?php echo $item['nomePessoa'] ?>">
+                                                <option value="<?php echo $item['codPessoa'] ?>">
+
                                                   <?php echo $item['nomePessoa'] ?></option>
-                                                   <?php endforeach; 
+
+
+                                                   <?php endforeach;                                                    
                                              ?>
                                              
                                               </select>    
 
-
+                                              <!-- <input type="text" value="<?php echo $item['codPessoa'] ?>" name="pessoa_codPessoa">  -->
 
                                                 <!-- <input type="text" name="" class="form-control" id="pessoa_codPessoa" placeholder="Nome do Responsável"> -->
-                                                <input type="hidden" value="1" name="pessoa_codPessoa"> 
                                                 <div class="alerta" id="alert-preencher-pessoa_codPessoa"></div>
 
                                         </div>        
