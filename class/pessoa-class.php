@@ -76,7 +76,28 @@ private function verificaCod ($cpfPessoa) {
 
 }
 
+public function getPessoas ( ) {
 
+    $sql = "select * from pessoa";
+
+    $sql = $this->pdo->query($sql);
+
+                if ($sql->rowCount() > 0) {
+
+                    //retorna todos os clientes
+                    return $sql ->fetchAll();
+
+                }else {
+                    return 
+
+
+                    print '<div class="alert alert-danger" role="alert">
+                          Não Encontrado!
+                        </div>';
+                    print '<script>window.setTimeout(function(){window.location=\'pesq-medico.php\';}, 4000);</script>';
+
+                }
+}
 
 
 

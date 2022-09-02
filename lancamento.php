@@ -1,3 +1,18 @@
+<?php
+
+require 'class/pessoa-class.php';
+
+$pessoa = new Pessoa();
+
+// $lista = $medico->pesquisar();
+  foreach ($lista as $item):
+
+
+?>
+<?php endforeach; 
+?>
+
+
 
 
 <!DOCTYPE html>
@@ -172,7 +187,26 @@ $(function () {
                                     <div class="col-md-4">
                                         <div class="form-group">
                                             <label>Nome do Responsável</label><span class="campo--obrigatorio">*</span>
-                                                <input type="text" name="" class="form-control" id="pessoa_codPessoa" placeholder="Nome do Responsável">
+
+                                            <?php                                                                 
+                                                         $lista = $pessoa->getPessoas();   
+                                                  ?>
+
+                                              <select class="form-control" name="nomePessoa">
+                                                <option>Selecionar</option>
+                                                <?php 
+                                                foreach ($lista as $item):
+                                                ?>
+                                                <option value="<?php echo $item['nomePessoa'] ?>">
+                                                  <?php echo $item['nomePessoa'] ?></option>
+                                                   <?php endforeach; 
+                                             ?>
+                                             
+                                              </select>    
+
+
+
+                                                <!-- <input type="text" name="" class="form-control" id="pessoa_codPessoa" placeholder="Nome do Responsável"> -->
                                                 <input type="hidden" value="1" name="pessoa_codPessoa"> 
                                                 <div class="alerta" id="alert-preencher-pessoa_codPessoa"></div>
 

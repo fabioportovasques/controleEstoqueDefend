@@ -1,3 +1,17 @@
+<?php
+
+require 'class/pessoa-class.php';
+
+$pessoa = new Pessoa();
+
+$lista = $pessoa->pesquisar();
+  foreach ($lista as $item):
+
+
+?>
+<?php endforeach; 
+?>
+
 
 
 <!DOCTYPE html>
@@ -7,6 +21,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Materiais</title>
+    <!--javascript para mascara  CPF/CNPJ-->
+  <script src="https://unpkg.com/imask"></script>
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,6 +43,8 @@ $(function () {
   })
 
 </script>
+
+
 
 </head>
 <body>
@@ -131,7 +149,7 @@ $(function () {
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>CPF </label><span class="campo--obrigatorio">*</span>
-                                            <input type="text" name="cpfPessoa"  class="form-control" id="cpfPessoa" placeholder="Insira o CPF da pessoa" >
+                                            <input type="text" name="cpfPessoa"  class="form-control" id="cpf_cnpj" placeholder="Insira o CPF da pessoa" onblur="validar(getElementById('cpf_cnpj').value)" autocomplete="off" >
                                             <div class="alerta" id="alert-preencher-cpfPessoa"></div>
 
                                     </div>        
@@ -303,7 +321,7 @@ $(function () {
     </div>
   </div>
 </div>
-<!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Open first modal</a> -->
+<script src="assets/js/validaCpfCnpj.js"></script>
 <script src="assets/js/cad-pessoa.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

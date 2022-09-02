@@ -25,7 +25,7 @@ $(function(){
         // console.log('clicou no botão');
         
         let tcampo = $('#nomePessoa').val().length;
-        let tcampo2 =  $('#cpfPessoa').val().length;
+        let tcampo2 =  $('#cpf_cnpj').val().length;
         let tcampo3 =  $('#telefonePessoa').val().length;
 
 
@@ -42,7 +42,7 @@ $(function(){
              let aviso2 = document.querySelector('#alert-preencher-cpfPessoa');
              aviso2.innerHTML="preencher o campo CPF";
              document.querySelector('#alert-preencher-cpfPessoa').style.display="block";
-                 $('#cpfPessoa').focus();
+                 $('#cpf_cnpj').focus();
             
     
         }
@@ -142,4 +142,16 @@ $(function(){
   })
   
   
-  
+  //mascara para cpf:
+
+  var maskCpfOuCnpj = IMask(document.getElementById('cpf_cnpj'), {
+    mask:[
+        {
+            mask: '000.000.000-00',
+            maxLength: 11
+        },
+        {
+            mask: '00.000.000/0000-00'
+        }
+    ]
+});
