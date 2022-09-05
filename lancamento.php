@@ -247,7 +247,7 @@ $(function () {
 
                                             </div>        
                                         </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-8 situacao">
                                                 <div class="form-group">
                                                     <label>Situação</label><span class="campo--obrigatorio">*</span>
                                                     <select class="form-control" name="situacaoCadastro" id="situacaoCadastro">

@@ -174,13 +174,17 @@ $(function(){
   var campoConcerto = document.querySelector('#pessoa_codPessoa');
   var labelConcerto = document.querySelector('#empresaConcerto');
   var campoHiddenEmpresa = document.querySelector('#campoHiddenEmpresa');
+  var situacao = document.querySelector('.situacao');
 
   select.addEventListener("click",function(){
     
-   
+    
 
     if (select.value==='Encaminhado para Conserto'){
       // console.log('acertou');
+
+    situacao.setAttribute("class","col-md-4");  //campo situacao recebe a classe md-4 para ficar menor e caber o outro do lado
+    // select.setAttribute("class","col-md-4");
     campoConcerto.style.display="block";
     labelConcerto.style.display="block";
     campoHiddenEmpresa.style.display="none";
@@ -189,9 +193,10 @@ $(function(){
     // campoHiddenEmpresa.name='teste';
     document.querySelector('#campoHiddenEmpresa').name='teste'; //troca o name do input para que permita ser enviado o name do input selecionado
 
-    }else if(select.value != 'Encaminhado para Conserto'){
+    }else if(select.value !== 'Encaminhado para Conserto'){
       campoConcerto.style.display="none";
       labelConcerto.style.display="none";
+      situacao.setAttribute("class","col-md-8");  //campo situacao recebe a classe md-8 para ficar maior
       campoHiddenEmpresa.style.display="block";
       // campoHiddenEmpresa.setAttribute("name","empresaServico_codEmpresa");
       // campoConcerto.name='empresaServico_codEmpresa';
