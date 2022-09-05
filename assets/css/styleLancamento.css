@@ -539,7 +539,7 @@ aparecer caso o campo setucao sejá iformado concerto
  /*desabilita por padrão o campo hidden do select "empresa concerto"*/
 
  #campoHiddenEmpresa{
-    display: none;
+    display: block;
  }
 
 /* #resultado{

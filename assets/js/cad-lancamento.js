@@ -173,6 +173,7 @@ $(function(){
   var select = document.querySelector('#situacaoCadastro');
   var campoConcerto = document.querySelector('#pessoa_codPessoa');
   var labelConcerto = document.querySelector('#empresaConcerto');
+  var campoHiddenEmpresa = document.querySelector('#campoHiddenEmpresa');
 
   select.addEventListener("click",function(){
     
@@ -182,12 +183,19 @@ $(function(){
       // console.log('acertou');
     campoConcerto.style.display="block";
     labelConcerto.style.display="block";
-    campoHiddenEmpresa.style="block";
+    campoHiddenEmpresa.style.display="none";
+    // campoHiddenEmpresa.removeAttribute(name);
+    // document.querySelector('#campoHiddenEmpresa').setAttribute(name, teste);
+    // campoHiddenEmpresa.name='teste';
+    document.querySelector('#campoHiddenEmpresa').name='teste'; //troca o name do input para que permita ser enviado o name do input selecionado
 
-    }else{
+    }else if(select.value != 'Encaminhado para Conserto'){
       campoConcerto.style.display="none";
       labelConcerto.style.display="none";
-      campoHiddenEmpresa.style="none";
+      campoHiddenEmpresa.style.display="block";
+      // campoHiddenEmpresa.setAttribute("name","empresaServico_codEmpresa");
+      // campoConcerto.name='empresaServico_codEmpresa';
+      document.querySelector('#pessoa_codPessoa').name='teste1'; //troca o name do input para que permita ser enviado o name do input selecionado
 
   
     }

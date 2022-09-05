@@ -261,6 +261,9 @@ $(function () {
                                                 </div>        
                                             </div>
 
+                                            <input type="hidden" value="1" id="campoHiddenEmpresa" name="empresaServico_codEmpresa">
+
+
                                             <div class="col-md-4">
                                                 <div class="form-group">
                                                     <label id="empresaConcerto">Empresa (Responsável Concerto)</label>
@@ -284,7 +287,6 @@ $(function () {
                                              
                                               </select> 
 
-                                              <input type="hidden" value="1" id="campoHiddenEmpresa" name="empresaServico_codEmpresa">
 
 
 

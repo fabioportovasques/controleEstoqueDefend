@@ -83,6 +83,8 @@ section{
     text-transform: capitalize;
     list-style: none;
     padding: 10px;
+    font-family: 'Roboto', sans-serif;
+
     
 
 }
@@ -529,6 +531,15 @@ select option{
 a{
     margin-top: 5px;
     margin-bottom: 5px;
+}
+
+
+
+.painelCards{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 /*Responsividade */
