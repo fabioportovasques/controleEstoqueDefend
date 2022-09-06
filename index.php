@@ -164,7 +164,7 @@ $(function () {
 
                                     select COUNT(*) AS vencer from lancamento 
                                       WHERE
-                                      dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day);
+                                      dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day) AND situacaoCadastro <> 'Definitivo';
                                                                           
                                       ";
                                       $sql= $pdo->query($sql);
