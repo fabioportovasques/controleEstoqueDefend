@@ -145,20 +145,19 @@ $(function () {
             ');
 
                 ?>
-
-                <table>
-                    <thead>
+                    
+                    <div class="table-responsive">
+                    <table class="table align-middle">
+                      <thead>
                         <tr>
-                            <td>Codigo</td>
+                        <td>Codigo</td>
                             <td>Nome</td>
                             <td>Nome Produto</td>
                             <td>Data Inicial</td>
                             <td>Data Final</td>
                             <td>situacao</td>
-
-
                         </tr>
-                    </thead>    
+                      </thead>
                 <?php 
 
                 while ($row = $stmt->fetch())
@@ -171,8 +170,8 @@ $(function () {
                             <td><?php echo $row['codProd']; ?></td>
                             <td><?php echo $row['nomePessoa']; ?></td>
                             <td><?php echo $row['nomeProd']; ?></td>
-                            <td><?php echo $row['dataInicialCadastro']; ?></td>
-                            <td><?php echo $row['dataFinalCadastro']; ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($row['dataInicialCadastro'])); ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($row['dataFinalCadastro'])); ?></td>
                             <td><?php echo $row['situacaoCadastro']; ?></td>
 
 
