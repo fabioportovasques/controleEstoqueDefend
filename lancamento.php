@@ -103,7 +103,7 @@ $(function () {
                                   </a>
                                   <div class="collapse" id="consultas" style="color:#112A46" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                       <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                          <a class="nav-link collapsed" id="texto"  href="cons-cliente.php">
+                                          <a class="nav-link collapsed" id="texto"  href="consCodigo.php">
                                               Códigos
                                               <div class="sb-sidenav-collapse-arrow"></div>
                                           </a>
@@ -141,7 +141,7 @@ $(function () {
                         <div class="row">
                                 <div class="col-md-12">
                                     <div class="form-group">
-                                        <div class="titulo--prod">Lançamento de Materiais</div>
+                                        <div class="titulo--prod">Lançamento de Produtos</div>
                                     </div>
                         <!--fim da linha-->
                         <div class="row">
@@ -252,7 +252,7 @@ $(function () {
                                                     <label>Situação</label><span class="campo--obrigatorio">*</span>
                                                     <select class="form-control" name="situacaoCadastro" id="situacaoCadastro">
                                                         <option>Seleciona uma Opção</option>
-                                                        <option>Encaminhado para Conserto</option>
+                                                        <option>Encaminhado para concerto</option>
                                                         <option>Emprestado</option>
                                                         <option>Definitivo</option>
                                                     </select>

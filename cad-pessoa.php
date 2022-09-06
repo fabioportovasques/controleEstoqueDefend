@@ -93,7 +93,7 @@ $(function () {
                                   </a>
                                   <div class="collapse" id="consultas" style="color:#112A46" aria-labelledby="headingTwo" data-parent="#sidenavAccordion">
                                       <nav class="sb-sidenav-menu-nested nav accordion" id="sidenavAccordionPages">
-                                          <a class="nav-link collapsed" id="texto"  href="cons-cliente.php">
+                                          <a class="nav-link collapsed" id="texto"  href="consCodigo.php">
                                               Códigos
                                               <div class="sb-sidenav-collapse-arrow"></div>
                                           </a>

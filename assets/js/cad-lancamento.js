@@ -180,7 +180,7 @@ $(function(){
     
     
 
-    if (select.value==='Encaminhado para Conserto'){
+    if (select.value==='Encaminhado para concerto'){
       // console.log('acertou');
 
     situacao.setAttribute("class","col-md-4");  //campo situacao recebe a classe md-4 para ficar menor e caber o outro do lado
@@ -193,7 +193,7 @@ $(function(){
     // campoHiddenEmpresa.name='teste';
     document.querySelector('#campoHiddenEmpresa').name='teste'; //troca o name do input para que permita ser enviado o name do input selecionado
 
-    }else if(select.value !== 'Encaminhado para Conserto'){
+    }else if(select.value !== 'Encaminhado para concerto'){
       campoConcerto.style.display="none";
       labelConcerto.style.display="none";
       situacao.setAttribute("class","col-md-8");  //campo situacao recebe a classe md-8 para ficar maior
