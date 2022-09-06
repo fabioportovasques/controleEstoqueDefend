@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/style3.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style-consCodigo.css">
 <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
 <!--  Botstrap 5 -->
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -48,7 +49,7 @@ $(function () {
     <aside>
         <div class="menu">
        
-                  <div id="layoutSidenav">
+        <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
                       <nav class="sb-sidenav  sb-sidenav-dark"  style="background-color: #0388d1; width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
@@ -120,63 +121,75 @@ $(function () {
     </aside>
     <section>
                 <div class="form">
+                <div class="containner">
 
+<form>
+    <label>Consultar Pessoas</label>
+    <input type="text" name="consultar" id="campo" placeholder="Informe o Codigo do Produto">
+    <!-- <button id="butconsultar" onclick="clicar()">Consultar </button> -->
+    <div class="alerta">Não Encontrado </div>
+
+</form>
+
+</div>
+
+<div id="resultado">
+        <?php
+        
+            require 'controller/con.php';
+
+            $stmt = $pdo->query('                    
+            SELECT codProd,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
+            FROM produto prod
+            INNER JOIN lancamento l on prod.codProd = l.produto_codProd
+            INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa;
+            ');
+
+                ?>
                     
-                    <form method="POST" action="" id="form">
-                        <!--comeco da linha-->
-                        <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="titulo--prod">Cadastro de Produto</div>
-                                    </div>
-                        <!--fim da linha-->
-                        <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
+                    <div class="table-responsive">
+                    <table class="table align-middle">
+                      <thead>
+                        <tr>
+                        <td>Codigo</td>
+                            <td>Nome</td>
+                            <td>Nome Produto</td>
+                            <td>Data Inicial</td>
+                            <td>Data Final</td>
+                            <td>situacao</td>
+                        </tr>
+                      </thead>
+                <?php 
 
-                                        <label class="prod">Cod do Produto</label><span class="campo--obrigatorio">*</span>
-                                            <input type="number" name="codProd" class="form-control" id="codProd" placeholder="Insira o Codigo do produto">
-                                            <div class="alerta" id="alert-preencher-cod"></div>
+                while ($row = $stmt->fetch())
+                {
 
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="prod">Nome do Produto</label><span class="campo--obrigatorio">*</span>
-                                            <input type="text" name="nomeProd" class="form-control" id="nomeProd" placeholder="Insira o nome do Produto">
-                                            <div class="alerta" id="alert-preencher-nome"></div>
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>Descrição do Produto</label>
-                                            <input type="text" name="descProd"  class="form-control" id="DesProd" placeholder="Insira a descrição do produto" >
-                                    </div>        
-                                </div>
-                                <!-- FIm da linha-->        
-                                </div>                                 
-                                    
+                    ?>
 
-                            <div class="buttons">
+                    <tbody>
+                        <tr>
+                            <td><?php echo $row['codProd']; ?></td>
+                            <td><?php echo $row['nomePessoa']; ?></td>
+                            <td><?php echo $row['nomeProd']; ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($row['dataInicialCadastro'])); ?></td>
+                            <td><?php echo date('d/m/Y', strtotime($row['dataFinalCadastro'])); ?></td>
+                            <td><?php echo $row['situacaoCadastro']; ?></td>
 
-                                        <div class="cancelButton" onclick="closeModal()">Cancelar</div>
 
-                                        <div class="cadastrarButton" id="botCad">Cadastrar</div>
 
-                            </div>    
 
-                               <div class="status">
+                        </tr>
+                    </tbody>    
 
-                                        <div class="spinner-border" id="load" role="status">
-                                        <div class="visually-hidden">Loading...</div>
-                                        </div>
-                                    <div class="erro"></div>
-                                    <div class="sucesso"></div>
-                                </div>
+                    <?php
+                }
 
-                        
-                        </form>
-          
+
+
+        ?>
+
+</div>          
+                </div>
 
         
                                        
@@ -303,8 +316,9 @@ $(function () {
     </div>
   </div>
 </div>
-<!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Open first modal</a> -->
-<script src="assets/js/cad-prod.js"></script>
+
+<script type="text/javascript" src="assets/js/consPessoa.js"></script>
+<script src="assets/js/js.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 

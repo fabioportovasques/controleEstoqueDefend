@@ -97,7 +97,7 @@ $(function () {
                                               Códigos
                                               <div class="sb-sidenav-collapse-arrow"></div>
                                           </a>
-                                          <a class="nav-link collapse" id="texto" href="cons-veiculo.php">
+                                          <a class="nav-link collapse" id="texto" href="consPessoa.php">
                                               Pessoas
                                               <div class="sb-sidenav-collapse-arrow"></div>
                                           </a>                                      
