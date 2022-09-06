@@ -125,7 +125,7 @@ $(function () {
 
 <form>
     <label>Consultar Pessoas</label>
-    <input type="text" name="consultar" id="campo" placeholder="Informe o Codigo do Produto">
+    <input type="text" name="consultar" id="campo" placeholder="Informe o nome da pessoa">
     <!-- <button id="butconsultar" onclick="clicar()">Consultar </button> -->
     <div class="alerta">Não Encontrado </div>
 
@@ -285,7 +285,7 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -304,7 +304,7 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Algo deu errado</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">

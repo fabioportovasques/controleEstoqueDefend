@@ -108,14 +108,9 @@ function closeModalSobre(){
 }
 
 function closeModal(){
-    document.querySelector('.WindowAreaInserir').style.opacity = 0;
-    setTimeout(()=>{
-        document.querySelector('.WindowAreaInserir').style.display = 'none';
-    }, 500);
 
-    document.querySelector('aside').style.display='flex';
-    // document.querySelector('header').style.display='flex';
-    window.location.href="index.html";
+    window.location.href="index.php";
+    console.log('clicou em sair');
 
 }
 
