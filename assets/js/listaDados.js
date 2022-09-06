@@ -18,7 +18,7 @@ $(document).ready(function(){
             $.ajax({
 
 
-                url:"../../controller/processa.php",
+                url:"../../controller/processaLancamento.php",
                 type:'POST',
                 dataType: 'html',
                 data:dados,

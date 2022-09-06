@@ -27,13 +27,14 @@ $(document).ready(function(){
                 },
                 error: function(XMLHttpRequest, textStatus, errorThrown){
                     console.log(XMLHttpRequest);
-                    //console.log('não existe');
+                   
                 }
 
 
             });
 
             return false;
+            
            
 
         });

@@ -43,6 +43,8 @@ INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
 
 <?php 
 
+  
+
 while ($row = $stmt->fetch())
 {
 
@@ -61,6 +63,22 @@ while ($row = $stmt->fetch())
 
     <?php
 }
+
+if($stmt->rowCount() > 0) {
+    return true;
+} else {
+    echo "
+        <div style='color:red'>Código Não Encontrado</div>
+    
+    ";
+//     echo "
+//         <script>
+//             var alert = document.querySelector('.alerta');
+//             alert.style.display='block';
+//         </script>
+    
+//     ";
+ } 
 
 
 

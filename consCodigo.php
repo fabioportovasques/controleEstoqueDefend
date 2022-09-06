@@ -127,6 +127,7 @@ $(function () {
     <label>Consultar produtos</label>
     <input type="text" name="consultar" id="campo" placeholder="Informe o Codigo do Produto">
     <!-- <button id="butconsultar" onclick="clicar()">Consultar </button> -->
+    <div class="alerta">Não Encontrado </div>
 
 </form>
 
