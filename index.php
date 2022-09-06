@@ -125,7 +125,27 @@ $(function () {
                         <div class="card" >
                                 <div class="card-body">
                                     <h5 class="card-title">Saída de Equipamentos</h5>
-                                    <div class="sub--title ">30</div>
+                                    <div class="sub--title ">
+
+                                    <?php 
+
+                                              //Contar quantidade de serviços
+                                              //require '../../config.php';
+
+                                              require 'controller/con.php';
+                                              $sql = "SELECT COUNT(*) as c FROM lancamento";
+                                              $sql= $pdo->query($sql);
+                                              $sql=$sql->fetch();
+                                              $total= $sql['c'];
+                                             
+                                               echo $total;
+                                              
+
+                                          ?>
+
+
+
+                                    </div>
                                     <div class="icones--card"><i class="fa-solid fa-check"></i></div>
                                     <a href="#" class="btn btn-success"><span>Acessar</span></a><br />
                                 </div>
@@ -135,7 +155,26 @@ $(function () {
                         <div class="card">
                                 <div class="card-body">
                                     <h5 class="card-title">Equipamentos em Atraso</h5>
-                                    <div class="sub--title dev">10</div>
+                                    <div class="sub--title dev">
+
+
+                                    <?php
+
+                                    $sql = "
+
+                                    select COUNT(*) AS vencer from lancamento 
+                                      WHERE
+                                      dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day);
+                                                                          
+                                      ";
+                                      $sql= $pdo->query($sql);
+                                      $sql=$sql->fetch();
+                                      $total= $sql['vencer'];
+                                     
+                                       echo $total;
+                                    ?>                                      
+
+                                    </div>
                                     <div class="icones--card"><i class="fa-solid fa-bell-slash"></i></div>
                                     <a href="#" class="btn btn-success "><span>Acessar</span></a>
                                 
