@@ -528,6 +528,11 @@ select option{
     padding-right: 20px;
 }
 
+.fa-bell-slash{
+    font-size: 30px;
+    color: orange;
+}
+
 a{
     margin-top: 5px;
     margin-bottom: 5px;

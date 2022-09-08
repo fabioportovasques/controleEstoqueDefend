@@ -12,6 +12,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/style3.css">
+<link rel="stylesheet" type="text/css" href="assets/css/style-consCodigo.css">
 <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
 <!--  Botstrap 5 -->
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -48,7 +49,7 @@ $(function () {
     <aside>
         <div class="menu">
        
-                  <div id="layoutSidenav">
+        <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
                       <nav class="sb-sidenav  sb-sidenav-dark"  style="background-color: #0388d1; width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
@@ -119,74 +120,186 @@ $(function () {
         </div>
     </aside>
     <section>
-                <div class="painelCards">
+           <div class="form">
 
-                    <div class="card--sub--1">
-                        <div class="card" >
-                                <div class="card-body">
-                                    <h5 class="card-title">Materiais com entrega vencidas</h5>
-                                    <div class="sub--title">
+                <!--inicio da linha-->
+                <div class="row">
 
-                                    <?php 
+                      <!--Início da coluna-->          
+                      <div class="col-md-12">
 
-                                              //Contar quantidade de serviços
-                                              //require '../../config.php';
+                              <?php 
+                          require 'model/con.php';                
 
-                                              require 'controller/con.php';
-                                              $sql = "SELECT COUNT(*) as c FROM lancamento where 
-                                              dataFinalCadastro < current_date()";
-                                              $sql= $pdo->query($sql);
-                                              $sql=$sql->fetch();
-                                              $total= $sql['c'];
-                                             
-                                               echo $total;
+                          $total = 0;
+                          $sql = "SELECT COUNT(*) as c FROM lancamento";
+                          $sql = $pdo->query($sql);
+                          $sql = $sql->fetch();
+                          $total = $sql['c'];
+                          $paginas = $total / 100;
+
+
+
+                          $pg = 1;
+                          if (isset ($_GET['p']) && !empty($_GET['p'])){    //Se o p estiver setado e não estivere vázio
+                          $pg = addslashes($_GET['p']);
+                          }
+
+                          $p = ($pg - 1) * 100; //vezes a quantidade de registros por página
+
+                          //puxar os registros do banco
+
+
+                          $sql = " 
+
+                          SELECT codProd, codCadastro,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
+                          FROM produto prod
+                          INNER JOIN lancamento l on prod.codProd = l.produto_codProd
+                          INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
+                          
+                           WHERE
+                          dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day)                          
+
+                          LIMIT $p, 100";
+                          $sql = $pdo->query($sql);
+
+                          ?>          
+
+                              <div class="container-fluid">
+                              <div class="row">
+                              <div class="col-md-12">
+
+
+                    <!--<table class="table-borded table-hover">-->
+                    <div class="table-responsive-md">  
+                    <table class="table">    
+                    <form action="cad-troca2.php" method="POST">
+                    <thead class="thead-light">
+                        <tr>
+
+                              <th>Codigo produto</hd>
+                              <th>Nome Pessoa</th>
+                              <th>Nome do produto</th>
+                              <th>Data Inicial</th>
+                              <th>Data de entrega </th>
+                              <th>Situação </th>
+
+                          <th colspan="3" align="right">Ações </th>
+                            </tr>
+                              </thead>
+                                <?php 
+                                  if ($sql->rowCount() > 0){
+                                  foreach ($sql->fetchAll() as $item) {
+
+                                  //var_dump($item);
+
+                                  ?>  
+
+
+                                 <tbody>
+
+                                      <tr>
+
+                                        <td> 
+                                              <!--Campo hidden serve para enviar as informações de forma invisivel para
+                                              o usuario final-->
+                                            <input class="form-itens" type="hidden" name="codProd" value="
+                                              <?php echo $item['codProd'];  ?>" >
+                                              <?php echo $item['codProd'];  ?> 
+                                        </td>
+                                        <td>
+                                            <input class="form-itens" type="hidden" name="nomePessoa" value="
+                                              <?php echo $item['nomePessoa'];  ?>" >
+                                              <?php echo $item['nomePessoa'];  ?> 
+                                        </td>
+                                        <td>
+                                              <input class="form-itens" type="hidden" name="nomeProd" value="
+                                              <?php echo $item['nomeProd'];  ?>" >
+                                              <?php echo $item['nomeProd'];  ?> 
+
+                                        </td>
+                                        <td>
+                                              <?php 
+                                              echo date('d/m/Y', strtotime($item['dataInicialCadastro']));
+                                              ?>
+                                         </td>    
+
+                                         <td>
+                                              <?php 
+                                              echo date('d/m/Y', strtotime($item['dataFinalCadastro']));
+                                              ?>
+                                         </td>
+                                          <td>
+                                              <input class="form-itens" type="hidden" name="situacaoCadastro" value="
+                                              <?php echo $item['situacaoCadastro'];  ?>" >
+                                              <?php echo $item['situacaoCadastro'];  ?>                      
+                                          </td> 
+
                                               
 
-                                          ?>
+                                              <!--<td data-toggle="tooltip"  title="Troca óleo Agora"><i class="glyphicon glyphicon-tint icones" onblur="validar(getElementById('cpf_cnpj').value)" >  </i></td>-->
+
+                                              <!--Referencia o codigo para enviar para troca -->  
+                                          <td>
+                                              <a class="btn"   href="editar_troca.php?cod_veiculo=<?php echo $item['codProd']; ?>" data-toggle="tooltip"  title="Troca óleo" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          </td>    
 
 
 
-                                    </div>
-                                    <div class="icones--card"><i class="fas fa-exclamation-triangle"></i></div>
-                                    <a href="#" class="btn btn-success"><span>Acessar</span></a><br />
-                                </div>
+                                          <td>
+                                              <a class="btn"  href="excluir_troca.php?cod_veiculo=<?php echo $item['codProd']; ?>" data-toggle="tooltip"  title="Excluir da lista"  role="button">  <i class="fas fa-trash-alt"  
+                                              style="color:red;"></i></a>
+                                          </td>
+
+
+
+
+                                      <!--<td><input type="submit" name=""   value="Troca Óleo"  ></td>-->
+
+
+                                          </tr>
+                                          <?php } } ?>
+                                          </tbody>
+
+                          </table>
+
+
+                          <nav aria-label="Navegação de página exemplo">
+                          <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Anterior">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Anterior</span>
+                                  </a>
+                              </li>
+                          <?php 
+                          for ($q=0; $q <$paginas; $q++) {  
+                          ?>
+
+                          <li class="page-item"><a class="page-link" href="trocas-avencer.php?p=<?php echo $q+1; ?>"><?php echo $q+1;  ?></a></li>
+                            <?php }?>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Próximo">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Próximo</span>
+                            </a>
+
+
+                            </li>
+                          </ul>
+                          </nav>
+
+
+                            </div>
+                            </div>
+                            </div>
+                          </div>
+
+                        
                         </div>
-                    </div>
-                    <div class="card--sub--2">
-                        <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Materiais próximos de vencer</h5>
-                                    <div class="sub--title dev">
-
-
-                                    <?php
-
-                                    $sql = "
-
-                                    
-                                    SELECT COUNT(*) AS vencer, codProd, codCadastro,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
-                                    FROM produto prod
-                                    INNER JOIN lancamento l on prod.codProd = l.produto_codProd
-                                    INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
-                                    
-                                     WHERE
-                                    dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day)  
-                                      ";
-                                      $sql= $pdo->query($sql);
-                                      $sql=$sql->fetch();
-                                      $total= $sql['vencer'];
-                                     
-                                       echo $total;
-                                    ?>                                      
-
-                                    </div>
-                                    <div class="icones--card"><i class="fa-solid fa-bell-slash"></i></div>
-                                    <a href="materiais-a-vencer.php" class="btn btn-success "><span>Acessar</span></a>
-                                
-                                </div>
-                        </div>        
-                    </div>
-              </div> 
+                       </div>
+                    </div>   
+                </div>
 
         
                                        
@@ -282,7 +395,7 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -301,7 +414,7 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Algo deu errado</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -313,8 +426,9 @@ $(function () {
     </div>
   </div>
 </div>
-<!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Open first modal</a> -->
-<script src="assets/js/cad-prod.js"></script>
+
+<script type="text/javascript" src="assets/js/consPessoa.js"></script>
+<script src="assets/js/js.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
