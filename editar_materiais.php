@@ -1,4 +1,26 @@
 
+	<?php   
+
+$codProd  = $_GET['codProd'];
+
+include 'class/lancamento-class.php';
+
+//Instanciando a class
+
+$lancamento = new Lancamento();
+$info = $lancamento->getInfo($codProd);
+
+
+// var_dump($info);
+
+
+
+
+?>
+
+
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -7,12 +29,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Materiais</title>
+    <!--javascript para mascara  CPF/CNPJ-->
+  <script src="https://unpkg.com/imask"></script>
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/style3.css">
-<link rel="stylesheet" type="text/css" href="assets/css/style-consCodigo.css">
 <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
 <!--  Botstrap 5 -->
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -28,6 +51,8 @@ $(function () {
   })
 
 </script>
+
+
 
 </head>
 <body>
@@ -120,186 +145,99 @@ $(function () {
         </div>
     </aside>
     <section>
-           <div class="form">
+                <div class="form">
+                    
+                    <form method="POST" action="insert_pessoa.php" id="form">
+                        <!--comeco da linha-->
+                        <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <div class="titulo--prod">Edição de Materiais</div>
+                                    </div>
+                        <!--fim da linha-->
+                        <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Código </label><span class="campo--obrigatorio">*</span>
+                                            <input type="text" name="cpfPessoa"  class="form-control"  readonly id="cpf_cnpj" placeholder="Insira o CPF da pessoa" 
+                                            onblur="validar(getElementById('cpf_cnpj').value)" autocomplete="off" value="<?php echo $info['codProd']; ?>" >
+                                            <div class="alerta" id="alert-preencher-cpfPessoa"></div>
 
-                <!--inicio da linha-->
-                <div class="row">
+                                    </div>        
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="prod">Nome da pessoa</label><span class="campo--obrigatorio">*</span>
+                                            <input type="text" name="nomePessoa" class="form-control" id="nomePessoa" 
+                                            placeholder="Insira o nome da pessoa"  readonly value="<?php echo $info['nomePessoa']; ?>">
+                                            <div class="alerta" id="alert-preencher-nomePessoa"></div>
+                                    </div>        
+                                </div>
 
-                      <!--Início da coluna-->          
-                      <div class="col-md-12">
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label class="prod">Data Início</label><span class="campo--obrigatorio">*</span>
+                                            <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
+                                            placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['dataInicialCadastro']; ?>">
+                                            <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                    </div>        
+                                </div>
+                          <!-- FIm da linha-->        
+                          </div>      
+                            <!--Inicio linha-->
+                            <div class="row">                           
+                                <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="prod">Data Final</label><span class="campo--obrigatorio">*</span>
+                                                <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
+                                                placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['dataFinalCadastro']; ?>">
+                                                <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                        </div>        
+                                </div>
+                                <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="prod">Situação</label><span class="campo--obrigatorio">*</span>
+                                                <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
+                                                placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['situacaoCadastro']; ?>">
+                                                <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                        </div>        
+                                </div>
+                                <div class="col-md-4">
+                                        <div class="form-group">
+                                            <label class="prod">Status</label><span class="campo--obrigatorio">*</span>
+                                            <select class="form-control" name="baixaMaterial" id="baixaMaterial">
+                                              <option>Selecionar</option>
+                                              <option>Baixar material</option>
+                                            </select>
+                                                <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                        </div>        
+                                </div>
 
-                              <?php 
-                          require 'model/con.php';                
-
-                          $total = 0;
-                          $sql = "SELECT COUNT(*) as c FROM lancamento";
-                          $sql = $pdo->query($sql);
-                          $sql = $sql->fetch();
-                          $total = $sql['c'];
-                          $paginas = $total / 100;
-
-
-
-                          $pg = 1;
-                          if (isset ($_GET['p']) && !empty($_GET['p'])){    //Se o p estiver setado e não estivere vázio
-                          $pg = addslashes($_GET['p']);
-                          }
-
-                          $p = ($pg - 1) * 100; //vezes a quantidade de registros por página
-
-                          //puxar os registros do banco
-
-
-                          $sql = " 
-
-                          SELECT codProd, codCadastro,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
-                          FROM produto prod
-                          INNER JOIN lancamento l on prod.codProd = l.produto_codProd
-                          INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
-                          
-                           WHERE
-                          dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day)                          
-
-                          LIMIT $p, 100";
-                          $sql = $pdo->query($sql);
-
-                          ?>          
-
-                              <div class="container-fluid">
-                              <div class="row">
-                              <div class="col-md-12">
-
-
-                    <!--<table class="table-borded table-hover">-->
-                    <div class="table-responsive-md">  
-                    <table class="table">    
-                    <form action="editar_troca.php" method="POST">
-                    <thead class="thead-light">
-                        <tr>
-
-                              <th>Codigo produto</hd>
-                              <th>Nome Pessoa</th>
-                              <th>Nome do produto</th>
-                              <th>Data Inicial</th>
-                              <th>Data de entrega </th>
-                              <th>Situação </th>
-
-                          <th colspan="3" align="right">Ações </th>
-                            </tr>
-                              </thead>
-                                <?php 
-                                  if ($sql->rowCount() > 0){
-                                  foreach ($sql->fetchAll() as $item) {
-
-                                  //var_dump($item);
-
-                                  ?>  
-
-
-                                 <tbody>
-
-                                      <tr>
-
-                                        <td> 
-                                              <!--Campo hidden serve para enviar as informações de forma invisivel para
-                                              o usuario final-->
-                                            <input class="form-itens" type="hidden" name="codProd" value="
-                                              <?php echo $item['codProd'];  ?>" >
-                                              <?php echo $item['codProd'];  ?> 
-                                        </td>
-                                        <td>
-                                            <input class="form-itens" type="hidden" name="nomePessoa" value="
-                                              <?php echo $item['nomePessoa'];  ?>" >
-                                              <?php echo $item['nomePessoa'];  ?> 
-                                        </td>
-                                        <td>
-                                              <input class="form-itens" type="hidden" name="nomeProd" value="
-                                              <?php echo $item['nomeProd'];  ?>" >
-                                              <?php echo $item['nomeProd'];  ?> 
-
-                                        </td>
-                                        <td>
-                                              <?php 
-                                              echo date('d/m/Y', strtotime($item['dataInicialCadastro']));
-                                              ?>
-                                         </td>    
-
-                                         <td>
-                                              <?php 
-                                              echo date('d/m/Y', strtotime($item['dataFinalCadastro']));
-                                              ?>
-                                         </td>
-                                          <td>
-                                              <input class="form-itens" type="hidden" name="situacaoCadastro" value="
-                                              <?php echo $item['situacaoCadastro'];  ?>" >
-                                              <?php echo $item['situacaoCadastro'];  ?>                      
-                                          </td> 
-
-                                              
-
-                                              <!--<td data-toggle="tooltip"  title="Troca óleo Agora"><i class="glyphicon glyphicon-tint icones" onblur="validar(getElementById('cpf_cnpj').value)" >  </i></td>-->
-
-                                              <!--Referencia o codigo para enviar para troca -->  
-                                          <td>
-                                              <a class="btn"   href="editar_materiais.php?codProd=<?php echo $item['codProd']; ?>" data-toggle="tooltip"  title="Editar Materiais" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
-                                          </td>    
-
-
-
-                                          <td>
-                                              <a class="btn"  href="excluir_troca.php?cod_veiculo=<?php echo $item['codProd']; ?>" data-toggle="tooltip"  title="Excluir da lista"  role="button">  <i class="fas fa-trash-alt"  
-                                              style="color:red;"></i></a>
-                                          </td>
-
-
-
-
-                                      <!--<td><input type="submit" name=""   value="Troca Óleo"  ></td>-->
-
-
-                                          </tr>
-                                          <?php } } ?>
-                                          </tbody>
-
-                          </table>
-
-
-                          <nav aria-label="Navegação de página exemplo">
-                          <ul class="pagination">
-                              <li class="page-item">
-                                <a class="page-link" href="#" aria-label="Anterior">
-                                  <span aria-hidden="true">&laquo;</span>
-                                  <span class="sr-only">Anterior</span>
-                                  </a>
-                              </li>
-                          <?php 
-                          for ($q=0; $q <$paginas; $q++) {  
-                          ?>
-
-                          <li class="page-item"><a class="page-link" href="trocas-avencer.php?p=<?php echo $q+1; ?>"><?php echo $q+1;  ?></a></li>
-                            <?php }?>
-                          <li class="page-item">
-                            <a class="page-link" href="#" aria-label="Próximo">
-                              <span aria-hidden="true">&raquo;</span>
-                              <span class="sr-only">Próximo</span>
-                            </a>
-
-
-                            </li>
-                          </ul>
-                          </nav>
-
-
-                            </div>
-                            </div>
-                            </div>
+                           <!--Fim da linha-->     
                           </div>
 
+                            <div class="buttons">
+
+                                        <div class="cancelButton" onclick="closeModal()">Cancelar</div>
+
+                                        <div class="cadastrarButton" id="botCad">Salvar</div>
+
+                                        <!-- <input type="submit" value="Enviar"> -->
+
+                            </div>    
+
+                               <div class="status">
+
+                                        <div class="spinner-border" id="load" role="status">
+                                        <div class="visually-hidden">Loading...</div>
+                                        </div>
+                                    <div class="erro"></div>
+                                    <div class="sucesso"></div>
+                                </div>
+
                         
-                        </div>
-                       </div>
-                    </div>   
-                </div>
+                        </form>
+          
 
         
                                        
@@ -418,7 +356,7 @@ $(function () {
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <div class="tituloModalError"><i class="fa-solid fa-triangle-exclamation"></i>Codigo Já cadastrado</div>
+      <div class="tituloModalError"><i class="fa-solid fa-triangle-exclamation"></i>CPF Já cadastrado</div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Sair</button>
@@ -426,9 +364,8 @@ $(function () {
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="assets/js/consPessoa.js"></script>
-<script src="assets/js/js.js"></script>
+<script src="assets/js/validaCpfCnpj.js"></script>
+<script src="assets/js/cad-pessoa.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 

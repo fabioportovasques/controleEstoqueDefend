@@ -2,16 +2,16 @@
 <?php 
 
 
-$produto_codProd = $_POST['produto_codProd'];
-// $nomeProd = $_POST['nomeProd'];
-$dataInicialCadastro = $_POST['dataInicialCadastro'];
-$dataFinalCadastro = $_POST['dataFinalCadastro'];
-$pessoa_codPessoa = $_POST['pessoa_codPessoa'];
-$nomeAutorizado = $_POST['nomeAutorizado'];
-$nomeLiberacao = $_POST['nomeLiberacao'];
-$situacaoCadastro = $_POST['situacaoCadastro'];
-$empresaServico_codEmpresa = $_POST['empresaServico_codEmpresa'];
-$obsCadastro = $_POST['obsCadastro'];
+// $produto_codProd = $_POST['produto_codProd'];
+// // $nomeProd = $_POST['nomeProd'];
+// $dataInicialCadastro = $_POST['dataInicialCadastro'];
+// $dataFinalCadastro = $_POST['dataFinalCadastro'];
+// $pessoa_codPessoa = $_POST['pessoa_codPessoa'];
+// $nomeAutorizado = $_POST['nomeAutorizado'];
+// $nomeLiberacao = $_POST['nomeLiberacao'];
+// $situacaoCadastro = $_POST['situacaoCadastro'];
+// $empresaServico_codEmpresa = $_POST['empresaServico_codEmpresa'];
+// $obsCadastro = $_POST['obsCadastro'];
 
 class Lancamento {
 
@@ -133,9 +133,37 @@ public function getEmpresa ( ) {
                     print '<script>window.setTimeout(function(){window.location=\'pesq-medico.php\';}, 4000);</script>';
 
                 }
+
 }   
 
 
+
+public function getInfo($codProd) {
+		
+    
+
+ $sql = " 
+ 
+    
+       SELECT codProd, codCadastro,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
+            FROM produto prod
+        INNER JOIN lancamento l on prod.codProd = l.produto_codProd
+        INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
+
+            
+         WHERE codProd = :codProd" ;
+    $sql = $this->pdo->prepare($sql);
+    $sql->bindValue(':codProd',$codProd);
+    $sql->execute();
+
+    if($sql->rowCount() > 0) {
+        return $sql->fetch();
+        echo 'encontrado';
+    } else {
+        return array();
+        echo 'nao encontrado';
+    }
+}
 
 
 }
