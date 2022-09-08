@@ -182,7 +182,7 @@ header .sobre{
     font-weight:600;
     margin-top:5px;
     margin-bottom:20px;
-    color:green;
+    color:red;
 }
 
 .dev{
@@ -190,7 +190,7 @@ header .sobre{
     font-weight:600;
     margin-top:5px;
     margin-bottom:20px;
-    color:red;
+    color:orange;
 }
 
 /*icones */

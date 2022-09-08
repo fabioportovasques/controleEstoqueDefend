@@ -124,7 +124,7 @@ $(function () {
                     <div class="card--sub--1">
                         <div class="card" >
                                 <div class="card-body">
-                                    <h5 class="card-title">Saída de Equipamentos</h5>
+                                    <h5 class="card-title">Materiais com entrega vencidas</h5>
                                     <div class="sub--title ">
 
                                     <?php 
@@ -133,7 +133,8 @@ $(function () {
                                               //require '../../config.php';
 
                                               require 'controller/con.php';
-                                              $sql = "SELECT COUNT(*) as c FROM lancamento";
+                                              $sql = "SELECT COUNT(*) as c FROM lancamento where 
+                                              dataFinalCadastro < current_date()";
                                               $sql= $pdo->query($sql);
                                               $sql=$sql->fetch();
                                               $total= $sql['c'];
@@ -154,7 +155,7 @@ $(function () {
                     <div class="card--sub--2">
                         <div class="card">
                                 <div class="card-body">
-                                    <h5 class="card-title">Equipamentos em Atraso</h5>
+                                    <h5 class="card-title">Materiais próximos de vencer</h5>
                                     <div class="sub--title dev">
 
 
