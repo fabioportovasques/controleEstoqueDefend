@@ -222,7 +222,7 @@ $(function () {
                                               <option>Selecionar</option>
                                               <option value="I">Baixar material</option>
                                             </select>
-                                                <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                                <div class="alerta" id="alert-preencher-status"></div>
                                         </div>        
                                       </div>      
                                      

@@ -71,7 +71,7 @@ $pessoa_codPessoa,$nomeAutorizado,$nomeLiberacao,$situacaoCadastro,$empresaServi
 
 private function verificaCod ($produto_codProd) {
 
-    $sql = "SELECT * FROM lancamento WHERE produto_codProd=:produto_codProd";
+    $sql = "SELECT * FROM lancamento WHERE produto_codProd=:produto_codProd AND statusMaterial == 'A' ";
     $sql = $this->pdo->prepare($sql);
     $sql->bindValue(':produto_codProd', $produto_codProd);
     $sql->execute();

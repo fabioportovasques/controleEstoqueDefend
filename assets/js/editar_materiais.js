@@ -15,7 +15,24 @@ $(function(){
   
   
           if(tcampo == 'Selecionar'){
-            console.log('preencha o campo status')
+            console.log('preencha o campo status');
+            let load = document.querySelector('#load');
+            // load.style.display="flex";
+            // let erro = document.querySelector('.erro');
+            // setTimeout(() => {
+            //   erro.style.display="flex";
+            //   erro.innerHTML= "preencha o campo status";
+            //  erro.style.display="block";
+
+              
+            // },"3000")
+            // setTimeout(()=>{
+            //   load.style.display="none";
+            // },"2000")
+
+            // setTimeout(()=>{
+            //   window.location.href=('editar_materiais.php');
+            // },"6000");
           }else {
 
           //  let tcampo = $('#statusMaterial').val().length;
@@ -188,8 +205,8 @@ $(function(){
                           },"6000");
       
         
-                        // $('#alert-troca-existe').modal('show');
-                         //console.log('nao encontrado');
+                        $('#alert-troca-existe').modal('show');
+                         console.log('nao encontrado');
                           
                         } 
                         
