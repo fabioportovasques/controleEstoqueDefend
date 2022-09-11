@@ -13,13 +13,9 @@ $info = $lancamento->getInfo($codProd);
 
 // var_dump($info);
 
-
-
+$hoje = date('d/m/y');
 
 ?>
-
-
-
 
 
 <!DOCTYPE html>
@@ -147,7 +143,7 @@ $(function () {
     <section>
                 <div class="form">
                     
-                    <form method="POST" action="insert_pessoa.php" id="form">
+                    <form method="POST" action="update_materiais.php" id="form">
                         <!--comeco da linha-->
                         <div class="row">
                                 <div class="col-md-12">
@@ -158,16 +154,16 @@ $(function () {
                         <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label>Código </label><span class="campo--obrigatorio">*</span>
-                                            <input type="text" name="cpfPessoa"  class="form-control"  readonly id="cpf_cnpj" placeholder="Insira o CPF da pessoa" 
+                                        <label>Código </label><span class="campo--obrigatorio"></span>
+                                            <input type="text" name="produto_codProd"  class="form-control"  readonly id="produto_codProd" placeholder="Insira o CPF da pessoa" 
                                             onblur="validar(getElementById('cpf_cnpj').value)" autocomplete="off" value="<?php echo $info['codProd']; ?>" >
-                                            <div class="alerta" id="alert-preencher-cpfPessoa"></div>
+                                            <div class="alerta" id="alert-preencher-produto_codProd"></div>
 
                                     </div>        
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="prod">Nome da pessoa</label><span class="campo--obrigatorio">*</span>
+                                        <label class="prod">Nome da pessoa</label><span class="campo--obrigatorio"></span>
                                             <input type="text" name="nomePessoa" class="form-control" id="nomePessoa" 
                                             placeholder="Insira o nome da pessoa"  readonly value="<?php echo $info['nomePessoa']; ?>">
                                             <div class="alerta" id="alert-preencher-nomePessoa"></div>
@@ -176,10 +172,10 @@ $(function () {
 
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="prod">Data Início</label><span class="campo--obrigatorio">*</span>
+                                        <label class="prod">Data Início</label><span class="campo--obrigatorio"></span>
                                             <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
                                             placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['dataInicialCadastro']; ?>">
-                                            <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                            <!-- <div class="alerta" id="alert-preencher-telefonePessoa"></div> -->
                                     </div>        
                                 </div>
                           <!-- FIm da linha-->        
@@ -188,39 +184,56 @@ $(function () {
                             <div class="row">                           
                                 <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="prod">Data Final</label><span class="campo--obrigatorio">*</span>
+                                            <label class="prod">Data Final</label><span class="campo--obrigatorio"></span>
                                                 <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
                                                 placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['dataFinalCadastro']; ?>">
-                                                <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                                <!-- <div class="alerta" id="alert-preencher-telefonePessoa"></div> -->
                                         </div>        
                                 </div>
                                 <div class="col-md-4">
                                         <div class="form-group">
-                                            <label class="prod">Situação</label><span class="campo--obrigatorio">*</span>
-                                                <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
+                                            <label class="prod">Situação</label><span class="campo--obrigatorio"></span>
+                                                <input type="text" name="" class="form-control" id="" 
                                                 placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['situacaoCadastro']; ?>">
-                                                <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                                <!-- <div class="alerta" id="alert-preencher-telefonePessoa"></div> -->
                                         </div>        
                                 </div>
                                 <div class="col-md-4">
+                                              <div class="form-group">
+                                                  <label class="prod">Nome do produto</label><span class="campo--obrigatorio"></span>
+                                                  <input type="text" name="nomeProd" id="nomeProd" class="form-control" readonly value="<?php echo $info['nomeProd']?>">
+                                                      <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                              </div>        
+                                      </div>                               
+                           <!--Fim da linha-->     
+                          </div>
+                          <div class="row">
+                                      <div class="col-md-4">
+                                                    <div class="form-group">
+                                                        <label class="prod">Data da baixa</label><span class="campo--obrigatorio"></span>
+                                                        <input type="text" name="dataBaixa" id="dataBaixa" class="form-control" readonly value="<?php echo $hoje?>">
+                                                            <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                                    </div>        
+                                      </div>
+                                      <div class="col-md-8">
                                         <div class="form-group">
                                             <label class="prod">Status</label><span class="campo--obrigatorio">*</span>
-                                            <select class="form-control" name="baixaMaterial" id="baixaMaterial">
+                                            <select class="form-control" name="statusMaterial" id="statusMaterial">
                                               <option>Selecionar</option>
-                                              <option>Baixar material</option>
+                                              <option value="I">Baixar material</option>
                                             </select>
                                                 <div class="alerta" id="alert-preencher-telefonePessoa"></div>
                                         </div>        
-                                </div>
-
-                           <!--Fim da linha-->     
+                                      </div>      
+                                     
                           </div>
-
                             <div class="buttons">
 
                                         <div class="cancelButton" onclick="closeModal()">Cancelar</div>
 
                                         <div class="cadastrarButton" id="botCad">Salvar</div>
+
+                                        <!-- <input type="submit"> -->
 
                                         <!-- <input type="submit" value="Enviar"> -->
 
@@ -327,6 +340,7 @@ $(function () {
   </div>
 </div>
 
+
 <!--Sucesso -->
 
 <div class="modal" id="ModalSucesso" aria-hidden="true" aria-labelledby="exampleModalToggleLabel2" tabindex="-1">
@@ -352,11 +366,11 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Algo deu errado</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Algo deu Errado</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <div class="tituloModalError"><i class="fa-solid fa-triangle-exclamation"></i>CPF Já cadastrado</div>
+      <div class="tituloModalError"><i class="fa-solid fa-triangle-exclamation"></i>Codigo Já cadastrado</div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Sair</button>
@@ -364,8 +378,8 @@ $(function () {
     </div>
   </div>
 </div>
-<script src="assets/js/validaCpfCnpj.js"></script>
-<script src="assets/js/cad-pessoa.js"></script>
+
+<script type="text/javascript" src="assets/js/editar_materiais.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 

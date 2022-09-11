@@ -171,6 +171,7 @@ $(function () {
                                     
                                      WHERE
                                     dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day)  
+                                    AND statusMaterial='A';
                                       ";
                                       $sql= $pdo->query($sql);
                                       $sql=$sql->fetch();

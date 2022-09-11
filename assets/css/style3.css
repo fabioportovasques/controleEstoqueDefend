@@ -267,6 +267,7 @@ header .sobre{
     display:inline-block;
     cursor:pointer;
     margin-right:30px;
+    width: 100px;
 }
 
 .cadastrarButton {
@@ -277,6 +278,8 @@ header .sobre{
     display:inline-block;
     cursor:pointer;
     margin-right:30px;
+    width: 100px;
+    text-align: center;
 
 }
 

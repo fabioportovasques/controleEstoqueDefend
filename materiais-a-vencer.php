@@ -160,6 +160,8 @@ $(function () {
                            WHERE
                           dataFinalCadastro BETWEEN CURRENT_DATE AND date_add(CURRENT_DATE , INTERVAL 10 day)                          
 
+                          AND statusMaterial = 'A'
+
                           LIMIT $p, 100";
                           $sql = $pdo->query($sql);
 
@@ -206,7 +208,7 @@ $(function () {
                                             <input class="form-itens" type="hidden" name="codProd" value="
                                               <?php echo $item['codProd'];  ?>" >
                                               <?php echo $item['codProd'];  ?> 
-                                        </td>
+                                        </td>                                        
                                         <td>
                                             <input class="form-itens" type="hidden" name="nomePessoa" value="
                                               <?php echo $item['nomePessoa'];  ?>" >
@@ -244,12 +246,6 @@ $(function () {
                                               <a class="btn"   href="editar_materiais.php?codProd=<?php echo $item['codProd']; ?>" data-toggle="tooltip"  title="Editar Materiais" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
                                           </td>    
 
-
-
-                                          <td>
-                                              <a class="btn"  href="excluir_troca.php?cod_veiculo=<?php echo $item['codProd']; ?>" data-toggle="tooltip"  title="Excluir da lista"  role="button">  <i class="fas fa-trash-alt"  
-                                              style="color:red;"></i></a>
-                                          </td>
 
 
 
@@ -427,8 +423,6 @@ $(function () {
   </div>
 </div>
 
-<script type="text/javascript" src="assets/js/consPessoa.js"></script>
-<script src="assets/js/js.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
