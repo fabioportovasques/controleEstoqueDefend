@@ -136,7 +136,7 @@ $(function () {
     <section>
 
           <div class="form">        
-                <form method="POST">
+                <form method="POST" action="update_materiais.php">
                         <!--comeco da linha-->
                         <div class="row">
                                 <div class="col-md-12">
@@ -461,7 +461,7 @@ $(function () {
 
 
 <script src="assets/js/cad-lancamento.js"></script>
-<script src="assets/js/listaDados.js"></script>
+<script src="assets/js/listaDados.js"></script> 
 
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>

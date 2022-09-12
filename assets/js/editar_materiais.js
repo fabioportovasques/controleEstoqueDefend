@@ -16,156 +16,30 @@ $(function(){
   
           if(tcampo == 'Selecionar'){
             console.log('preencha o campo status');
-            let load = document.querySelector('#load');
+            // let load = document.querySelector('#load');
             // load.style.display="flex";
-            // let erro = document.querySelector('.erro');
-            // setTimeout(() => {
-            //   erro.style.display="flex";
-            //   erro.innerHTML= "preencha o campo status";
-            //  erro.style.display="block";
+            let erro = document.querySelector('.erro');
+            setTimeout(() => {
+              erro.style.display="flex";
+              erro.innerHTML= "preencha o campo status";
+             erro.style.display="block";
+
 
               
-            // },"3000")
+            },"500")
             // setTimeout(()=>{
             //   load.style.display="none";
             // },"2000")
 
             // setTimeout(()=>{
             //   window.location.href=('editar_materiais.php');
-            // },"6000");
-          }else {
-
-          //  let tcampo = $('#statusMaterial').val().length;
-    //     let tcampo2 = $('#filtro_cabine').val().length;
-    //     let tcampo3 = $('#filtro_combustivel').val().length;
-    //     let tcampo4 = $('#filtro_ar').val().length;
-    //     let tcampo5 = $('#filtro_oleo').val().length;
-    //     let tcampo6 = $('#tipo_oleo').val().length;
-    //     let tcampo7 = $('#qtd_oleo').val().length;
-    //     let tcampo8 = $('#data_troca').val();
-    //     let tcampo9 = $('#proxima_troca').val();
-  
-        
-    //     if(tcampo == 0)
-    //     {
+            // },"2000");
+          }else if (tcampo != 'Selecionar') {
+            let erro = document.querySelector('.erro');
+            erro.style.display="none";
             
-    //         $('#alert-preencher-km').modal('show');
-    //         $('#cpf_cnpj').focus();
-    //     }      
-
-    //     if(tcampo2 == 0)
-    //     {
-            
-    //         $('#alert-preencher-filtro-cabine').modal('show');
-    //         $('#filtro_cabine').focus();
-    //     }  
-
-    //     if(tcampo3 == 0)
-    //     {
-            
-    //         $('#alert-preencher-filtro_combustivel').modal('show');
-    //         $('#filtro_cabine').focus();
-    //     } 
-
-    //     if(tcampo4 == 0)
-    //     {
-            
-    //         $('#alert-preencher-filtro_ar').modal('show');
-    //         $('#filtro_cabine').focus();
-    //     } 
-
-    //     if(tcampo5 == 0)
-    //     {
-            
-    //         $('#alert-preencher-filtro_oleo').modal('show');
-    //         $('#filtro_cabine').focus();
-    //     } 
-        
-    //     if(tcampo6 == 0)
-    //     {
-            
-    //         $('#alert-preencher-tipo_oleo').modal('show');
-    //         $('#filtro_cabine').focus();
-    //     } 
-
-
-    //     if(tcampo7 == 0)
-    //     {
-            
-    //         $('#alert-preencher-qtd_oleo').modal('show');
-    //         $('#filtro_cabine').focus();
-    //     } 
-        
-
-    //     if (tcampo8 == tcampo9)  {   
-                  
-         
-    //       // Desabilita botão $('#cadastro').prop('disabled', true);
-
-    //       //Dispara o modal   
-    //       $('#alert-data-iguais').modal('show');
-
-    //       //após segundos, desabilita botão
-    //          setTimeout(function () {
-    //           $('#cadastro').prop('disabled', true);
-    //       }, 2000);
-
-    //       //habilita o botão
-    //       setTimeout(function () {
-    //         $('#cadastro').prop('disabled', false);
-    //     }, 6000);
-
-    //       //Dispara o modal   
-    //       $('#alert-data-iguais').modal('show');
           
-          
-    
-                                        
-    //       } 
 
-
-         
-
-
-    //     function selecionar() {
-    //       var select = document.getElementById('unidade_id_unidade');
-    //       var option = select.options[select.selectedIndex];
-
-    //       document.getElementById('value').value = option.value;
-    //       document.getElementById('text').value = option.text;
-    //     }
-
-
-    //     var select = document.getElementById('unidade_id_unidade');
-    //     var text = select.options[select.selectedIndex].text;
-    //     //console.log(text); 
-    //     //alert(text);
-  
-             
-      
-    
-    //     if(text == "gbi sampaio" || text == "gbi express" || text == "")  
-    //     { 
-  
-    //       //document.getElementById('text').value = option.text;
-    //         //alert ("erro");
-    //         $('#alert-preencher-unidade').modal('show');
-    //         $('#nome_cliente').focus();
-    //     }
-       
-       
-        
-    //     else {
-            
-  
-          //header("Location: login.php");
-  
-            // <script>window.setTimeout(function(){window.location=\'ajax-login.php\';}, 1000);</script>;
-  
-             //  var timer = setInterval(function() { alert(i++) }, 10000);
-                 
-                   // let dados = $(this).serialize();
-                   // let dados = $(this).serialize();
                    $('#botCad').on('click', function(){ 
                     
                    $.ajax({
