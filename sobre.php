@@ -1,6 +1,5 @@
 
 
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +7,6 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Controle de Materiais</title>
-    <!--javascript para mascara  CPF/CNPJ-->
-  <script src="https://unpkg.com/imask"></script>
     <script type="text/javascript" src="assets/js/jquery.js"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -31,8 +28,6 @@ $(function () {
 
 </script>
 
-
-
 </head>
 <body>
 
@@ -53,7 +48,7 @@ $(function () {
     <aside>
         <div class="menu">
        
-        <div id="layoutSidenav">
+                  <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
                       <nav class="sb-sidenav"  style="width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
@@ -103,87 +98,52 @@ $(function () {
                                           </a>                                      
                                       </nav>
                                 </div>
-                                <div class="nav" style="font-size:22px">                                                                                            
-                                  <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
-                                  <a class="nav-link" href="sobre.php" style="color: #ffffff;" >
-                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
+                                <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard123" aria-expanded="false" aria-controls="dashboard123">
+                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-address-card"></i>
                                       Sobre
                                       <div class="sb-sidenav-collapse-arrow"></div>
                                   </a>
-                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                      <nav class="sb-sidenav-menu-nested nav">
-                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
-                                      </nav>
+                                  <div class="collapse" id="dashboard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <!-- <nav class="sb-sidenav-menu-nested nav">
+                                          <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
+                                          <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
+                                      </nav> -->
                                   </div>  
-                              
+                                 
+                                
+                                  
+                          
                       </nav>
               </div>
           </div>
         </div>
     </aside>
     <section>
-                <div class="form">
-                    
-                    <form method="POST" action="insert_pessoa.php" id="form">
-                        <!--comeco da linha-->
-                        <div class="row">
-                                <div class="col-md-12">
-                                    <div class="form-group">
-                                        <div class="titulo--prod">Cadastro de Pessoa</div>
-                                    </div>
-                        <!--fim da linha-->
-                        <div class="row">
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label>CPF </label><span class="campo--obrigatorio">*</span>
-                                            <input type="text" name="cpfPessoa"  class="form-control" id="cpf_cnpj" placeholder="Insira o CPF da pessoa" onblur="validar(getElementById('cpf_cnpj').value)" autocomplete="off" >
-                                            <div class="alerta" id="alert-preencher-cpfPessoa"></div>
 
-                                    </div>        
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="prod">Nome da pessoa</label><span class="campo--obrigatorio">*</span>
-                                            <input type="text" name="nomePessoa" class="form-control" id="nomePessoa" placeholder="Insira o nome da pessoa">
-                                            <div class="alerta" id="alert-preencher-nomePessoa"></div>
-                                    </div>        
-                                </div>
+      <div class="form">
 
-                                <div class="col-md-4">
-                                    <div class="form-group">
-                                        <label class="prod">Telefone</label><span class="campo--obrigatorio">*</span>
-                                            <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" placeholder="Insira o telefone da pessoa">
-                                            <div class="alerta" id="alert-preencher-telefonePessoa"></div>
-                                    </div>        
-                                </div>
-                                <!-- FIm da linha-->        
-                                </div>                                 
-                                    
+              <div class="iconesSobre">
+                    <div class="texto1">
+                          A aplicação tem como objetivo gerenciar a saída de materiais do estoque, bem como 
+                          saber quem foi a pessoa que está de posse do referido material, também é possível observar
+                          na Dashboard da aplicação as notificações de materiais com 10 dias ou mais sem devolução e os materiais/equipamentos
+                          com entrega vencida.
+                    </div>
 
-                            <div class="buttons">
 
-                                        <div class="cancelButton" onclick="closeModal()">Cancelar</div>
+                    <div class="iconesSobre2">
+                        <div class="contato"><i class="fa-brands fa-whatsapp-square"></i> <a href="https://wa.me/53999367651">Contato:(53)999367651</a>  
+                        </div>
+                        <div class="linkedin"><a href="https://www.linkedin.com/in/f%C3%A1bio-geovane-porto-vasques-analista-de-sistemas/"><i class="fa-brands fa-linkedin"></i>fabioportovasques</a> </div>
+                        <div class="git"><a href="https://github.com/fabioportovasques"><i class="fa-brands fa-github"></i> github</a></div>
+                    </div>
+                    <div class="creditos">&copy; Desenvolvido por Fábio Vasques</div>
 
-                                        <div class="cadastrarButton" id="botCad">Cadastrar</div>
+          </div>
+      </div>
+  </section>
 
-                                        <!-- <input type="submit" value="Enviar"> -->
-
-                            </div>    
-
-                               <div class="status">
-
-                                        <div class="spinner-border" id="load" role="status">
-                                        <div class="visually-hidden">Loading...</div>
-                                        </div>
-                                    <div class="erro"></div>
-                                    <div class="sucesso"></div>
-                                </div>
-
-                        
-                        </form>
-          
-
-        
+</div>
                                        
 
 <!-- area do modal sobre -->
@@ -277,7 +237,7 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -296,11 +256,11 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Algo deu errado</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-      <div class="tituloModalError"><i class="fa-solid fa-triangle-exclamation"></i>CPF Já cadastrado</div>
+      <div class="tituloModalError"><i class="fa-solid fa-triangle-exclamation"></i>Codigo Já cadastrado</div>
       </div>
       <div class="modal-footer">
         <button class="btn btn-primary" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" data-bs-dismiss="modal">Sair</button>
@@ -308,8 +268,8 @@ $(function () {
     </div>
   </div>
 </div>
-<script src="assets/js/validaCpfCnpj.js"></script>
-<script src="assets/js/cad-pessoa.js"></script>
+<!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Open first modal</a> -->
+<script src="assets/js/cad-prod.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 
