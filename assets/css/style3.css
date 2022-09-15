@@ -604,6 +604,7 @@ a{
 }
 
 
+<<<<<<< HEAD
 .form--login{
     font-family: 'Roboto', sans-serif;
     box-shadow: 5px 5px 5px 5px #888888;
@@ -647,6 +648,8 @@ a{
 
 }
 
+=======
+>>>>>>> aea98960bc3635a87db2ec3b92029d2874175f46
 /*Responsividade */
 
 /* 
@@ -1880,7 +1883,10 @@ a{
     .creditos{
         font-size: 12px;
     }
+<<<<<<< HEAD
 
    
+=======
+>>>>>>> aea98960bc3635a87db2ec3b92029d2874175f46
 
 }
