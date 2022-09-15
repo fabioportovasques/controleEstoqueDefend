@@ -9,6 +9,12 @@ body{
     
 }
 
+.header--info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+}
 
 .container--pessoal{
   
@@ -64,6 +70,14 @@ section{
     margin-left: -235px;
     box-shadow: 10px 5px 5px black;
     
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link{
+    color: #fff;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link:hover{
+    color: #ccc
 }
 
 .titulo{
@@ -656,12 +670,12 @@ aparecer caso o campo setucao sejá iformado concerto
     }
 
     .titulo{
-        margin-left: 500px;
-        font-size:20px;
-    }
-    
-    .bem-vindo, .sobre{
+        margin-left: 800px;
         font-size:18px;
+    }
+
+    .bem-vindo{
+        font-size:14px;
     }
 
     .card-title{
@@ -798,11 +812,11 @@ aparecer caso o campo setucao sejá iformado concerto
     }
 
     .titulo{
-        margin-left: 500px;
-        font-size:20px;
+        margin-left: 800px;
+        font-size:18px;
     }
-   
-    .bem-vindo, .sobre{
+
+    .bem-vindo{
         font-size:14px;
     }
 
@@ -875,14 +889,15 @@ aparecer caso o campo setucao sejá iformado concerto
      
     }
 
+    
+
     .titulo{
-        margin-left: 550px;
+        margin-left: 800px;
         font-size:18px;
     }
 
-    .bem-vindo, .sobre{
+    .bem-vindo{
         font-size:14px;
-        margin-left: 1590px;
     }
 
     .card-title{
@@ -1463,7 +1478,15 @@ aparecer caso o campo setucao sejá iformado concerto
         height: calc(100vh);
         left: 0;
         
-    } 
+    }
+    
+    
+
+    .menu{
+        margin-top: 120px;
+        margin-left: 180px;
+        /* background-color: red; */
+    }
     
     aside{
         display:none;
@@ -1612,15 +1635,13 @@ aparecer caso o campo setucao sejá iformado concerto
        
     }
 
-    form{
-        
-        margin-left:100px;
-    }
+  
 
-
-    form, label {
-        margin-top: 20px;
+    .form{
+        max-width: 400px;
+        margin-top: 30px;
     }
+ 
 
     .WindowAreaInserir{
         display: none;

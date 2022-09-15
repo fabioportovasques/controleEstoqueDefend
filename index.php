@@ -34,7 +34,7 @@ $(function () {
 
 
 <div class="container--pessoal">
-    <header>
+    <header class="header--info">
             <div class="titulo">controle de materiais -- defend--</div>
             <div class="bem-vindo">Bem vindo:Fulano</div>
           
@@ -50,7 +50,7 @@ $(function () {
        
                   <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
-                      <nav class="sb-sidenav  sb-sidenav-dark"  style="background-color: #0388d1; width:180px;" id="sidenavAccordion">
+                      <nav class="sb-sidenav"  style="width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
                               <div class="nav" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
@@ -98,16 +98,17 @@ $(function () {
                                           </a>                                      
                                       </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard123" aria-expanded="false" aria-controls="dashboard123">
-                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-address-card"></i>
+                                <div class="nav" style="font-size:22px">                                                                                            
+                                  <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
+                                  <a class="nav-link" href="sobre.php" style="color: #ffffff;" >
+                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
                                       Sobre
                                       <div class="sb-sidenav-collapse-arrow"></div>
                                   </a>
-                                  <div class="collapse" id="dashboard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                      <!-- <nav class="sb-sidenav-menu-nested nav">
-                                          <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
-                                          <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
-                                      </nav> -->
+                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <nav class="sb-sidenav-menu-nested nav">
+                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
+                                      </nav>
                                   </div>  
                                  
                                 
@@ -124,7 +125,7 @@ $(function () {
                     <div class="card--sub--1">
                         <div class="card" >
                                 <div class="card-body">
-                                    <h5 class="card-title">Materiais com entrega vencidas</h5>
+                                    <h5 class="card-title">Materiais com entregas vencidas</h5>
                                     <div class="sub--title">
 
                                     <?php 
@@ -133,8 +134,22 @@ $(function () {
                                               //require '../../config.php';
 
                                               require 'controller/con.php';
-                                              $sql = "SELECT COUNT(*) as c FROM lancamento where 
-                                              dataFinalCadastro < current_date()";
+                                              $sql = "
+                                              
+                                              
+                                              SELECT COUNT(*) as c, codProd, codCadastro,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
+                                              FROM produto prod
+                                              INNER JOIN lancamento l on prod.codProd = l.produto_codProd
+                                              INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
+                                              
+                                               WHERE
+                    
+                                               dataFinalCadastro < current_date()
+                    
+                                              AND statusMaterial = 'A' ";
+
+
+                                    
                                               $sql= $pdo->query($sql);
                                               $sql=$sql->fetch();
                                               $total= $sql['c'];
@@ -148,7 +163,7 @@ $(function () {
 
                                     </div>
                                     <div class="icones--card"><i class="fas fa-exclamation-triangle"></i></div>
-                                    <a href="#" class="btn btn-success"><span>Acessar</span></a><br />
+                                    <a href="materiais-vencidos.php" class="btn btn-success"><span>Acessar</span></a><br />
                                 </div>
                         </div>
                     </div>

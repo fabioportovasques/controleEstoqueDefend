@@ -56,7 +56,7 @@ $(function () {
 
 
 <div class="container--pessoal">
-    <header>
+    <header class="header--info">
             <div class="titulo">controle de materiais -- defend--</div>
             <div class="bem-vindo">Bem vindo:Fulano</div>
           
@@ -72,7 +72,7 @@ $(function () {
        
         <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
-                      <nav class="sb-sidenav  sb-sidenav-dark"  style="background-color: #0388d1; width:180px;" id="sidenavAccordion">
+                      <nav class="sb-sidenav"  style="width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
                               <div class="nav" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
@@ -120,18 +120,18 @@ $(function () {
                                           </a>                                      
                                       </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard123" aria-expanded="false" aria-controls="dashboard123">
-                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-address-card"></i>
+                                <div class="nav" style="font-size:22px">                                                                                            
+                                  <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
+                                  <a class="nav-link" href="sobre.php" style="color: #ffffff;" >
+                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
                                       Sobre
                                       <div class="sb-sidenav-collapse-arrow"></div>
                                   </a>
-                                  <div class="collapse" id="dashboard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                      <!-- <nav class="sb-sidenav-menu-nested nav">
-                                          <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
-                                          <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
-                                      </nav> -->
-                                  </div>  
-                                 
+                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <nav class="sb-sidenav-menu-nested nav">
+                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
+                                      </nav>
+                                  </div> 
                                 
                                   
                           
@@ -174,7 +174,7 @@ $(function () {
                                     <div class="form-group">
                                         <label class="prod">Data Início</label><span class="campo--obrigatorio"></span>
                                             <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
-                                            placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['dataInicialCadastro']; ?>">
+                                             readonly value="<?php echo date('d/m/Y', strtotime($info['dataInicialCadastro'])); ?>">
                                             <!-- <div class="alerta" id="alert-preencher-telefonePessoa"></div> -->
                                     </div>        
                                 </div>
@@ -186,7 +186,7 @@ $(function () {
                                         <div class="form-group">
                                             <label class="prod">Data Final</label><span class="campo--obrigatorio"></span>
                                                 <input type="text" name="telefonePessoa" class="form-control" id="telefonePessoa" 
-                                                placeholder="Insira o telefone da pessoa"  readonly value="<?php echo $info['dataFinalCadastro']; ?>">
+                                                 readonly value="<?php echo date('d/m/Y', strtotime($info['dataFinalCadastro']))?>">
                                                 <!-- <div class="alerta" id="alert-preencher-telefonePessoa"></div> -->
                                         </div>        
                                 </div>
@@ -208,14 +208,14 @@ $(function () {
                            <!--Fim da linha-->     
                           </div>
                           <div class="row">
-                                      <div class="col-md-4">
+                                      <!-- <div class="col-md-4">
                                                     <div class="form-group">
-                                                        <label class="prod">Data da baixa</label><span class="campo--obrigatorio"></span>
-                                                        <input type="text" name="dataBaixa" id="dataBaixa" class="form-control" readonly value="<?php echo $hoje?>">
-                                                            <div class="alerta" id="alert-preencher-telefonePessoa"></div>
+                                                        <label class="prod">Data da baixa</label><span class="campo--obrigatorio"></span> -->
+                                                        <input type="hidden" name="dataBaixa" id="dataBaixa" class="form-control" readonly value="<?php  echo $hoje ?>">
+                                                            <!-- <div class="alerta" id="alert-preencher-telefonePessoa"></div>
                                                     </div>        
-                                      </div>
-                                      <div class="col-md-8">
+                                      </div> -->
+                                      <div class="col-md-12">
                                         <div class="form-group">
                                             <label class="prod">Status</label><span class="campo--obrigatorio">*</span>
                                             <select class="form-control" name="statusMaterial" id="statusMaterial">
