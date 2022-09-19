@@ -120,6 +120,7 @@ $(function () {
                                       <nav class="sb-sidenav-menu-nested nav">
                                           <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
                                       </nav>
+<<<<<<< HEAD
                                   </div>  
                                   <div class="nav" id="sair--mobile" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
@@ -133,6 +134,8 @@ $(function () {
                                       <nav class="sb-sidenav-menu-nested nav">
                                           <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
                                       </nav>
+=======
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
                                   </div>  
                                 
                                   

@@ -603,8 +603,13 @@ a{
     color: #1779fd;
 }
 
+<<<<<<< HEAD
 /*estiliza a tela de login */
 
+=======
+
+<<<<<<< HEAD
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 .form--login{
     font-family: 'Roboto', sans-serif;
     box-shadow: 5px 5px 5px 5px #888888;
@@ -612,9 +617,15 @@ a{
 	left: 50%;
 	top: 50%;
     width: 600px;
+<<<<<<< HEAD
     height: 320px;
     margin-left:-300px;
     margin-top:-160px;
+=======
+    height: 250px;
+    margin-left:-300px;
+    margin-top:-125px;
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -630,23 +641,36 @@ a{
 }
 
 .form--login form label{
+<<<<<<< HEAD
+=======
+    margin-bottom: -8px;
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
     text-transform: uppercase;
 }
 
 .form--login form button{
     margin-top: 10px;
+<<<<<<< HEAD
     margin-bottom: 20px;
+=======
+    margin-bottom: 30px;
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 }
 
 .form--login span img{
     position: absolute;
+<<<<<<< HEAD
     margin-top: -25px;
+=======
+    margin-top: -22px;
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
     margin-left:180px;
     cursor: pointer;
     max-width: 25px;
 
 }
 
+<<<<<<< HEAD
 #login{
     font-weight: 600;
 }
@@ -679,6 +703,10 @@ a{
 
 }
 
+=======
+=======
+>>>>>>> aea98960bc3635a87db2ec3b92029d2874175f46
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 /*Responsividade */
 
 /* 
@@ -1064,6 +1092,7 @@ a{
     
 
 
+
 }
 
 
@@ -1165,6 +1194,7 @@ a{
         margin-top:-10px;
         margin-right: -130px;
         display:block;
+<<<<<<< HEAD
     }
 
     .menu--opener1,.menu--opener2,.menu--opener3{
@@ -1285,6 +1315,18 @@ a{
     .form{
         width: 600px;
     }
+=======
+    }
+
+    .menu--opener1,.menu--opener2,.menu--opener3{
+        width:40px;
+        padding:4px;
+        border-bottom:4px solid;
+        display:block;
+        
+    }
+
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 
     .menu nav ul, aside{
  
@@ -1323,6 +1365,7 @@ a{
         margin-left: 180px;
         /* background-color: red; */
     }
+<<<<<<< HEAD
 
     
     aside{
@@ -1350,7 +1393,15 @@ a{
         .sair{
         display: none;
         }
+=======
 
+    
+    aside{
+        display:none;
+     }
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
+
+     
 }
 
 @media (min-width:900px) AND (max-width:950px){
@@ -1435,6 +1486,7 @@ a{
      }
 
      
+<<<<<<< HEAD
     #sair--mobile{
     display: block;
     }
@@ -1442,6 +1494,9 @@ a{
     .sair{
     display: none;
     }
+=======
+   
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 }
 
 @media (min-width:768px) AND (max-width:899px){
@@ -1455,6 +1510,7 @@ a{
         margin-top: 10px;
     }
 
+<<<<<<< HEAD
     section{
         
         margin-left:-900px;
@@ -1468,6 +1524,12 @@ a{
     .menu-opener{
         margin-top:-10px;
         margin-right: -100px;
+=======
+    
+    .menu-opener{
+        margin-top:-10px;
+        margin-right: -130px;
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
         display:block;
     }
 
@@ -1599,6 +1661,7 @@ a{
 
     section{
         
+<<<<<<< HEAD
         margin-left:-900px;
         height: 100%;
     }
@@ -1606,6 +1669,10 @@ a{
     .form{
         width: 630px;
         margin-left: 730px;
+=======
+        margin-left:-600px;
+        height: 100%;
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
     }
 
 
@@ -1866,7 +1933,11 @@ a{
    
 
     .bem-vindo{
+<<<<<<< HEAD
         font-size:8px;
+=======
+        font-size:10px;
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
     }
 
    
@@ -2060,7 +2131,15 @@ a{
        
     }
 
+<<<<<<< HEAD
 
+=======
+  
+
+
+   
+
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
     .form{
         max-width: 400px;
         margin-top: 10px;
@@ -2098,8 +2177,16 @@ a{
     .creditos{
         font-size: 12px;
     }
+<<<<<<< HEAD
 
 
+=======
+<<<<<<< HEAD
+
+   
+=======
+>>>>>>> aea98960bc3635a87db2ec3b92029d2874175f46
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 
    #sair--mobile{
     display: block;

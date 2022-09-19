@@ -1,4 +1,5 @@
 
+<<<<<<< HEAD
 <?php
 session_start();
 
@@ -12,6 +13,8 @@ if(empty($_SESSION['lg'])) {
 ?>
 
 
+=======
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 
 <!DOCTYPE html>
 <html lang="en">
@@ -50,10 +53,14 @@ $(function () {
 <div class="container--pessoal">
     <header class="header--info">
             <div class="titulo">controle de materiais -- defend--</div>
+<<<<<<< HEAD
             <div class="bem-vindo">Bem vindo:   <?php echo $_SESSION['nome']; ?></div>
             <div class="sair"><a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i>sair</a> </div>
 
 
+=======
+            <div class="bem-vindo">Bem vindo:Fulano</div>
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
           
             <!-- <div class="sobre">Sobre</div> -->
           <div class="menu-opener">
@@ -67,7 +74,11 @@ $(function () {
        
         <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
+<<<<<<< HEAD
                       <nav class="sb-sidenav"  style="width:180px;" id="sidenavAccordion">
+=======
+                      <nav class="sb-sidenav  sb-sidenav-dark"  style="width:180px;" id="sidenavAccordion">
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
                           <div class="sb-sidenav-menu">
                               <div class="nav" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
@@ -127,6 +138,7 @@ $(function () {
                                           <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
                                       </nav>
                                   </div>  
+<<<<<<< HEAD
                                   <div class="nav" id="sair--mobile" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
                                   <a class="nav-link" href="sair.php" style="color: #ffffff;" >
@@ -140,6 +152,9 @@ $(function () {
                                           <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
                                       </nav>
                                   </div> 
+=======
+                                 
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
                                 
                                   
                           

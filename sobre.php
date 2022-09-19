@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 session_start();
 
@@ -9,6 +10,9 @@ if(empty($_SESSION['lg'])) {
     exit;
 }
 ?>
+=======
+
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 
 <!DOCTYPE html>
 <html lang="en">
@@ -46,11 +50,15 @@ $(function () {
 <div class="container--pessoal">
     <header class="header--info">
             <div class="titulo">controle de materiais -- defend--</div>
+<<<<<<< HEAD
             <div class="bem-vindo">Bem vindo: <?php echo  $_SESSION['nome']; ?></div>
             <div class="sair"><a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i>sair</a> </div>
 
 
 
+=======
+            <div class="bem-vindo">Bem vindo:Fulano</div>
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
           
             <!-- <div class="sobre">Sobre</div> -->
           <div class="menu-opener">
@@ -123,6 +131,7 @@ $(function () {
                                           <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
                                       </nav> -->
                                   </div>  
+<<<<<<< HEAD
                                   <div class="nav" id="sair--mobile" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
                                   <a class="nav-link" href="sair.php" style="color: #ffffff;" >
@@ -137,6 +146,9 @@ $(function () {
                                       </nav>
                                   </div>  
                                 
+=======
+                                 
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
                                 
                                   
                           
