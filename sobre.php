@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 
@@ -10,7 +9,6 @@ if(empty($_SESSION['lg'])) {
     exit;
 }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,7 +22,6 @@ if(empty($_SESSION['lg'])) {
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="assets/css/style3.css">
-<link rel="stylesheet" type="text/css" href="assets/css/style-consCodigo.css">
 <link rel="stylesheet" type="text/css" href="assets/css/menu.css">
 <!--  Botstrap 5 -->
 <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
@@ -49,8 +46,9 @@ $(function () {
 <div class="container--pessoal">
     <header class="header--info">
             <div class="titulo">controle de materiais -- defend--</div>
-            <div class="bem-vindo">Bem vindo:<?php echo $_SESSION['nome']; ?></div>
+            <div class="bem-vindo">Bem vindo: <?php echo  $_SESSION['nome']; ?></div>
             <div class="sair"><a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i>sair</a> </div>
+
 
 
           
@@ -64,7 +62,7 @@ $(function () {
     <aside>
         <div class="menu">
        
-        <div id="layoutSidenav">
+                  <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
                       <nav class="sb-sidenav"  style="width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
@@ -114,17 +112,16 @@ $(function () {
                                           </a>                                      
                                       </nav>
                                 </div>
-                                <div class="nav" style="font-size:22px">                                                                                            
-                                  <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
-                                  <a class="nav-link" href="sobre.php" style="color: #ffffff;" >
-                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
+                                <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard123" aria-expanded="false" aria-controls="dashboard123">
+                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-address-card"></i>
                                       Sobre
                                       <div class="sb-sidenav-collapse-arrow"></div>
                                   </a>
-                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                      <nav class="sb-sidenav-menu-nested nav">
-                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
-                                      </nav>
+                                  <div class="collapse" id="dashboard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <!-- <nav class="sb-sidenav-menu-nested nav">
+                                          <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
+                                          <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
+                                      </nav> -->
                                   </div>  
                                   <div class="nav" id="sair--mobile" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
@@ -138,7 +135,8 @@ $(function () {
                                       <nav class="sb-sidenav-menu-nested nav">
                                           <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
                                       </nav>
-                                  </div> 
+                                  </div>  
+                                
                                 
                                   
                           
@@ -148,85 +146,31 @@ $(function () {
         </div>
     </aside>
     <section>
-                <div class="form">
-                <div class="containner">
 
-<form>
-    <label>Consultar produtos</label>
-    <input type="number" name="consultar" id="campo" placeholder="Informe o Codigo do Produto">
-    <!-- <button id="butconsultar" onclick="clicar()">Consultar </button> -->
-    <div class="alerta">Não Encontrado </div>
+      <div class="form">
 
-</form>
+              <div class="iconesSobre">
+                    <div class="texto1">
+                          A aplicação tem como objetivo gerenciar a saída de materiais do estoque, bem como 
+                          saber quem foi a pessoa que está de posse do referido material, também é possível observar
+                          na Dashboard da aplicação as notificações de materiais com 10 dias ou mais sem devolução e os materiais/equipamentos
+                          com entrega vencida.
+                    </div>
+
+
+                    <div class="iconesSobre2">
+                        <div class="contato"><i class="fa-brands fa-whatsapp-square"></i> <a href="https://wa.me/53999367651">Contato:(53)999367651</a>  
+                        </div>
+                        <div class="linkedin"><a href="https://www.linkedin.com/in/f%C3%A1bio-geovane-porto-vasques-analista-de-sistemas/"><i class="fa-brands fa-linkedin"></i>fabioportovasques</a> </div>
+                        <div class="git"><a href="https://github.com/fabioportovasques"><i class="fa-brands fa-github"></i> github</a></div>
+                    </div>
+                    <div class="creditos">&copy; Desenvolvido por Fábio Vasques</div>
+
+          </div>
+      </div>
+  </section>
 
 </div>
-
-<div id="resultado">
-        <?php
-        
-            require 'controller/con.php';
-
-            $stmt = $pdo->query('                    
-            SELECT codProd,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro,dataBaixa,statusMaterial,
-            nomeEmpresa
-            FROM produto prod
-            INNER JOIN lancamento l on prod.codProd = l.produto_codProd
-            INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
-            inner join empresaServico emp on l.empresaServico_codEmpresa = emp.codEmpresa;
-            ');
-
-                ?>
-                    
-                    <div class="table-responsive">
-                    <table class="table align-middle">
-                      <thead>
-                        <tr>
-                           <td>Codigo</td>
-                            <td>Nome Pessoa</td>
-                            <td>Nome Produto</td>
-                            <td>Nome da Empresa Concerto</td>
-                            <td>Data Retirada</td>
-                            <td>Data Baixa</td>
-                            <td>status</td>
-                            <td>situacao Prod</td>
-                        </tr>
-                      </thead>
-                <?php 
-
-                while ($row = $stmt->fetch())
-                {
-
-                    ?>
-
-                    <tbody>
-                        <tr>
-                            <td><?php echo $row['codProd']; ?></td>
-                            <td><?php echo $row['nomePessoa']; ?></td>                           
-                            <td><?php echo $row['nomeProd']; ?></td>
-                            <td><?php echo $row['nomeEmpresa']; ?></td>
-                            <td><?php echo date('d/m/Y', strtotime($row['dataInicialCadastro'])); ?></td>
-                            <!-- <td><?php echo date('d/m/Y', strtotime($row['dataBaixa'])); ?></td> -->
-                            <td><?php echo $row['dataBaixa']; ?></td>
-                            <td><?php echo $row['statusMaterial']; ?></td>
-                            <td><?php echo $row['situacaoCadastro']; ?></td>
-
-
-
-
-                        </tr>
-                    </tbody>    
-
-                    <?php
-                }
-
-
-
-        ?>
-
-</div>          
-                </div>
-
-        
                                        
 
 <!-- area do modal sobre -->
@@ -320,7 +264,7 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2"></h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -339,7 +283,7 @@ $(function () {
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalToggleLabel2">Algo deu errado</h5>
+        <h5 class="modal-title" id="exampleModalToggleLabel2">Alert</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
@@ -351,9 +295,8 @@ $(function () {
     </div>
   </div>
 </div>
-
-<script type="text/javascript" src="assets/js/consCodigo.js"></script>
-<script src="assets/js/js.js"></script>
+<!-- <a class="btn btn-primary" data-bs-toggle="modal" href="#exampleModalToggle2" role="button">Open first modal</a> -->
+<script src="assets/js/cad-prod.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 

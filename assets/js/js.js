@@ -3,7 +3,6 @@
 //     alert('clicou');
 // }
 
-//fucao para menu amburguer
 
 
 
@@ -124,3 +123,12 @@ function closeModalPesquisa(){
     // document.querySelector('header').style.display='flex';
     window.location.href="index.html";
 }
+
+
+// window.addEventListener('resize', function () {
+//     var largura = window.innerWidth;
+  
+//     if (largura <= 600)
+//     // document.querySelector(".sair").style.display="none";
+//     var sair = document.querySelector('.sair').innerHTML="teste";
+//     });

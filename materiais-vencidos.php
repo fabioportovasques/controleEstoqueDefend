@@ -12,6 +12,7 @@ if(empty($_SESSION['lg'])) {
 ?>
 
 
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -49,7 +50,7 @@ $(function () {
 <div class="container--pessoal">
     <header class="header--info">
             <div class="titulo">controle de materiais -- defend--</div>
-            <div class="bem-vindo">Bem vindo:<?php echo $_SESSION['nome']; ?></div>
+            <div class="bem-vindo">Bem vindo:   <?php echo $_SESSION['nome']; ?></div>
             <div class="sair"><a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i>sair</a> </div>
 
 
@@ -148,82 +149,182 @@ $(function () {
         </div>
     </aside>
     <section>
-                <div class="form">
-                <div class="containner">
+           <div class="form">
 
-<form>
-    <label>Consultar produtos</label>
-    <input type="number" name="consultar" id="campo" placeholder="Informe o Codigo do Produto">
-    <!-- <button id="butconsultar" onclick="clicar()">Consultar </button> -->
-    <div class="alerta">Não Encontrado </div>
+                <!--inicio da linha-->
+                <div class="row">
 
-</form>
+                      <!--Início da coluna-->          
+                      <div class="col-md-12">
 
-</div>
+                              <?php 
+                          require 'model/con.php';                
 
-<div id="resultado">
-        <?php
-        
-            require 'controller/con.php';
+                          $total = 0;
+                          $sql = "SELECT COUNT(*) as c FROM lancamento";
+                          $sql = $pdo->query($sql);
+                          $sql = $sql->fetch();
+                          $total = $sql['c'];
+                          $paginas = $total / 100;
 
-            $stmt = $pdo->query('                    
-            SELECT codProd,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro,dataBaixa,statusMaterial,
-            nomeEmpresa
-            FROM produto prod
-            INNER JOIN lancamento l on prod.codProd = l.produto_codProd
-            INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
-            inner join empresaServico emp on l.empresaServico_codEmpresa = emp.codEmpresa;
-            ');
 
-                ?>
-                    
-                    <div class="table-responsive">
-                    <table class="table align-middle">
-                      <thead>
+
+                          $pg = 1;
+                          if (isset ($_GET['p']) && !empty($_GET['p'])){    //Se o p estiver setado e não estivere vázio
+                          $pg = addslashes($_GET['p']);
+                          }
+
+                          $p = ($pg - 1) * 100; //vezes a quantidade de registros por página
+
+                          //puxar os registros do banco
+
+
+                          $sql = " 
+
+                          SELECT codProd, codCadastro,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
+                          FROM produto prod
+                          INNER JOIN lancamento l on prod.codProd = l.produto_codProd
+                          INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
+                          
+                           WHERE
+
+                           dataFinalCadastro < current_date()
+
+                          AND statusMaterial = 'A'
+
+                          LIMIT $p, 100";
+                          $sql = $pdo->query($sql);
+
+                          ?>          
+
+                              <div class="container-fluid">
+                              <div class="row">
+                              <div class="col-md-12">
+
+
+                    <!--<table class="table-borded table-hover">-->
+                    <div class="table-responsive-md">  
+                    <table class="table">    
+                    <form action="editar_troca.php" method="POST">
+                    <thead class="thead-light">
                         <tr>
-                           <td>Codigo</td>
-                            <td>Nome Pessoa</td>
-                            <td>Nome Produto</td>
-                            <td>Nome da Empresa Concerto</td>
-                            <td>Data Retirada</td>
-                            <td>Data Baixa</td>
-                            <td>status</td>
-                            <td>situacao Prod</td>
-                        </tr>
-                      </thead>
-                <?php 
 
-                while ($row = $stmt->fetch())
-                {
+                              <th>Codigo produto</hd>
+                              <th>Nome Pessoa</th>
+                              <th>Nome do produto</th>
+                              <th>Data Inicial</th>
+                              <th>Data de entrega </th>
+                              <th>Situação </th>
 
-                    ?>
+                          <th colspan="3" align="right">Ações </th>
+                            </tr>
+                              </thead>
+                                <?php 
+                                  if ($sql->rowCount() > 0){
+                                  foreach ($sql->fetchAll() as $item) {
 
-                    <tbody>
-                        <tr>
-                            <td><?php echo $row['codProd']; ?></td>
-                            <td><?php echo $row['nomePessoa']; ?></td>                           
-                            <td><?php echo $row['nomeProd']; ?></td>
-                            <td><?php echo $row['nomeEmpresa']; ?></td>
-                            <td><?php echo date('d/m/Y', strtotime($row['dataInicialCadastro'])); ?></td>
-                            <!-- <td><?php echo date('d/m/Y', strtotime($row['dataBaixa'])); ?></td> -->
-                            <td><?php echo $row['dataBaixa']; ?></td>
-                            <td><?php echo $row['statusMaterial']; ?></td>
-                            <td><?php echo $row['situacaoCadastro']; ?></td>
+                                  //var_dump($item);
+
+                                  ?>  
 
 
+                                 <tbody>
+
+                                      <tr>
+
+                                        <td> 
+                                              <!--Campo hidden serve para enviar as informações de forma invisivel para
+                                              o usuario final-->
+                                            <input class="form-itens" type="hidden" name="codProd" value="
+                                              <?php echo $item['codProd'];  ?>" >
+                                              <?php echo $item['codProd'];  ?> 
+                                        </td>                                        
+                                        <td>
+                                            <input class="form-itens" type="hidden" name="nomePessoa" value="
+                                              <?php echo $item['nomePessoa'];  ?>" >
+                                              <?php echo $item['nomePessoa'];  ?> 
+                                        </td>
+                                        <td>
+                                              <input class="form-itens" type="hidden" name="nomeProd" value="
+                                              <?php echo $item['nomeProd'];  ?>" >
+                                              <?php echo $item['nomeProd'];  ?> 
+
+                                        </td>
+                                        <td>
+                                              <?php 
+                                              echo date('d/m/Y', strtotime($item['dataInicialCadastro']));
+                                              ?>
+                                         </td>    
+
+                                         <td>
+                                              <?php 
+                                              echo date('d/m/Y', strtotime($item['dataFinalCadastro']));
+                                              ?>
+                                         </td>
+                                          <td>
+                                              <input class="form-itens" type="hidden" name="situacaoCadastro" value="
+                                              <?php echo $item['situacaoCadastro'];  ?>" >
+                                              <?php echo $item['situacaoCadastro'];  ?>                      
+                                          </td> 
+
+                                              
+
+                                              <!--<td data-toggle="tooltip"  title="Troca óleo Agora"><i class="glyphicon glyphicon-tint icones" onblur="validar(getElementById('cpf_cnpj').value)" >  </i></td>-->
+
+                                              <!--Referencia o codigo para enviar para troca -->  
+                                          <td>
+                                              <a class="btn"   href="editar_materiais.php?codProd=<?php echo $item['codProd']; ?>" data-toggle="tooltip"  title="Editar Materiais" role="button"><i class="fa-solid fa-pen-to-square"></i></a>
+                                          </td>    
 
 
-                        </tr>
-                    </tbody>    
-
-                    <?php
-                }
 
 
 
-        ?>
+                                      <!--<td><input type="submit" name=""   value="Troca Óleo"  ></td>-->
 
-</div>          
+
+                                          </tr>
+                                          <?php } } ?>
+                                          </tbody>
+
+                          </table>
+
+
+                          <nav aria-label="Navegação de página exemplo">
+                          <ul class="pagination">
+                              <li class="page-item">
+                                <a class="page-link" href="#" aria-label="Anterior">
+                                  <span aria-hidden="true">&laquo;</span>
+                                  <span class="sr-only">Anterior</span>
+                                  </a>
+                              </li>
+                          <?php 
+                          for ($q=0; $q <$paginas; $q++) {  
+                          ?>
+
+                          <li class="page-item"><a class="page-link" href="trocas-avencer.php?p=<?php echo $q+1; ?>"><?php echo $q+1;  ?></a></li>
+                            <?php }?>
+                          <li class="page-item">
+                            <a class="page-link" href="#" aria-label="Próximo">
+                              <span aria-hidden="true">&raquo;</span>
+                              <span class="sr-only">Próximo</span>
+                            </a>
+
+
+                            </li>
+                          </ul>
+                          </nav>
+
+
+                            </div>
+                            </div>
+                            </div>
+                          </div>
+
+                        
+                        </div>
+                       </div>
+                    </div>   
                 </div>
 
         
@@ -352,8 +453,6 @@ $(function () {
   </div>
 </div>
 
-<script type="text/javascript" src="assets/js/consCodigo.js"></script>
-<script src="assets/js/js.js"></script>
 <!--Link aobaixo para funcionar o meu dropdow-->
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
 

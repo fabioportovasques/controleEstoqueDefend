@@ -1,7 +1,3 @@
-// function clickCad(){
-//     console.log('clicou');
-//     e.preventDefault();
-// }
 
 // var clickcad2 = document.querySelector('#clickcad2');
 // clickcad2.addEventListener("click", escutar);

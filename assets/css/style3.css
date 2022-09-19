@@ -1,7 +1,7 @@
-.dashboard{
+/* .dashboard{
     display: flex;
    
-}
+} */
 body{
     margin: 0;
     padding: 0;
@@ -9,6 +9,12 @@ body{
     
 }
 
+.header--info{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: auto;
+}
 
 .container--pessoal{
   
@@ -30,7 +36,7 @@ header{
     margin-left: -235px;
     background-color: #2C3639;
     grid-area:1 / 2 / 2 / 4;
-    height: 50px;
+    height: 80px;
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -60,17 +66,32 @@ aside{
 section{
    
     grid-area: 2 / 2 / 3 / 4;
-    margin-top: -200px;
+    margin-top: -20px;
     margin-left: -235px;
-    box-shadow: 10px 5px 5px black;
+    
     
 }
 
 .titulo{
     text-transform: uppercase;
     font-weight: 600;
-    margin-left: 20px;
     
+}
+
+/*alterar cores dos submenus*/
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link{
+    color: #fff;
+}
+
+.sb-sidenav .sb-sidenav-menu .nav .nav-link:hover{
+    color: #ccc
+}
+
+.bem-vindo{
+    text-transform: uppercase;
+    font-weight: 600;
+
 }
 
 .menu{
@@ -141,7 +162,7 @@ ul li a:hover{
     padding: 10px;
 } */
 
-header .bemvindo, .sobre{
+/* header .bemvindo, .sobre{
     padding: 10px;
     font-size: 12px;
 }
@@ -151,7 +172,7 @@ header .bemvindo{
 }
 header .sobre{
     cursor: pointer;
-}
+} */
 
 
 .dashboard{
@@ -210,6 +231,11 @@ header .sobre{
     display: none;
 }
 
+/*Remove o sublinhado dos icones da pigina (sobre)*/
+
+.iconesSobre2 a {
+    text-decoration: none;
+}
 
 /* Modal  */
 
@@ -244,7 +270,7 @@ header .sobre{
     flex:1;
     font-family: 'Roboto', sans-serif;
     box-shadow: 5px 5px 5px 5px #888888;
-    margin-top: 250px;
+    margin-top: 40px;
     margin-bottom: 20px;
     margin-left: 100px;
     padding: 10px;
@@ -550,6 +576,109 @@ a{
     
 }
 
+.iconesSobre{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+}
+
+.iconesSobre2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.contato{
+    padding: 10px;
+    margin-left: 10px;
+}
+
+.linkedin{
+    margin-right: 10px;
+}
+.fa-whatsapp-square{
+    font-size: 20px;
+    color: #1779fd;
+}
+
+/*estiliza a tela de login */
+
+.form--login{
+    font-family: 'Roboto', sans-serif;
+    box-shadow: 5px 5px 5px 5px #888888;
+    position: absolute;
+	left: 50%;
+	top: 50%;
+    width: 600px;
+    height: 320px;
+    margin-left:-300px;
+    margin-top:-160px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.form--login form{
+
+    display: flex;
+    flex-direction: column;
+}
+
+.form--login form label{
+    text-transform: uppercase;
+}
+
+.form--login form button{
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+.form--login span img{
+    position: absolute;
+    margin-top: -25px;
+    margin-left:180px;
+    cursor: pointer;
+    max-width: 25px;
+
+}
+
+#login{
+    font-weight: 600;
+}
+
+
+/* Estiliza o link de sair*/
+
+
+.header--info, .sair{
+    text-transform: uppercase;
+}
+
+.header--info, .sair a{
+    text-decoration: none;
+    color: #fff;
+    font-size: 14px;
+
+}
+
+.header--info, .sair a:hover{
+    color: #ccc;
+}
+
+.painel{
+
+    width: 1000px;
+    margin-top: 300px;
+    padding: 20px;
+    box-shadow: 5px 5px 5px 5px #888888;
+
+}
+
 /*Responsividade */
 
 /* 
@@ -578,12 +707,11 @@ a{
 
 
 /*Responsividade */
+
+
 @media (min-width:2001px) AND (max-width:2500px){
 
-    .container--pessoal{
-        
-    }
-
+ 
  
 
     aside{
@@ -605,7 +733,7 @@ a{
   
     .menu-opener{
         margin-top:-10px;
-        display:block;
+        display:none;
     }
 
     .menu--opener1,.menu--opener2,.menu--opener3{
@@ -624,7 +752,7 @@ a{
         justify-content:baseline;
         position: absolute;
         z-index: 99;
-        background-color: rgba(3, 136, 209, 0.71);
+        /* background-color: rgba(3, 136, 209, 0.71); */
         width: 220px;
         height: calc(100vh);
         left: 0;
@@ -640,6 +768,13 @@ a{
      }
     
 
+     .form{
+        box-shadow: block;
+        margin-left: 450px;
+    }
+
+
+
     header{
         margin-left: -850px;
         
@@ -654,10 +789,7 @@ a{
         padding-bottom:20px;
     }
 
-    .dashboard{
-       margin-left:-50px;
-     
-    }
+  
 
     .titulo{
         margin-left: 500px;
@@ -713,19 +845,19 @@ a{
     }
 
 
-    .form{
-        box-shadow: none;
+
+
+    #sair--mobile{
+        display: none;
     }
+    
 
 }
 
 
 @media (min-width:1501px) AND (max-width:2000px){
 
-    .container--pessoal{
-    }
-
-  
+   
 
     aside{
    
@@ -746,7 +878,7 @@ a{
 
     .menu-opener{
         margin-top:-10px;
-        display:block;
+        display:none;
     }
 
     .menu--opener1,.menu--opener2,.menu--opener3{
@@ -767,7 +899,7 @@ a{
         justify-content:baseline;
         position: absolute;
         z-index: 99;
-        background-color: rgba(3, 136, 209, 0.71);
+        /* background-color: rgba(3, 136, 209, 0.71); */
         height: calc(100vh);
         left: 0;
         
@@ -789,17 +921,19 @@ a{
 
     section{
         
-        margin-left:-500px;
+        margin-left:-290px;
+    }
+
+    .form{
+        width: 800px;
+        margin-left:250px;
     }
 
     .menu, nav ul li{
         padding-bottom:20px;
     }
 
-    .dashboard{
-       margin-left:-50px;
-     
-    }
+  
 
     .titulo{
         margin-left: 500px;
@@ -837,6 +971,11 @@ a{
     }
 
 
+    #sair--mobile{
+        display: none;
+    }
+    
+
 }
 
 @media (min-width:1301px) AND (max-width:1500px){
@@ -846,6 +985,13 @@ a{
       
         
     }
+
+    .header--info{
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+    }
+
 
     section{
         
@@ -874,19 +1020,15 @@ a{
         font-size: 20px;
     }
 
-    .dashboard{
-       margin-left:-50px;
-     
-    }
+
 
     .titulo{
         margin-left: 550px;
         font-size:18px;
     }
 
-    .bem-vindo, .sobre{
+    .bem-vindo{
         font-size:14px;
-        margin-left: 1590px;
     }
 
     .card-title{
@@ -916,6 +1058,11 @@ a{
     }
     
 
+    #sair--mobile{
+        display: none;
+    }
+    
+
 
 }
 
@@ -930,6 +1077,7 @@ a{
         
     }
 
+    
     aside{
    
         /* grid-row-start: 1;
@@ -951,9 +1099,7 @@ a{
         font-size: 20px;
     }   
 
-    .dashboard{
-       margin-left:50px;
-    }
+   
 
     .titulo{
         margin-left: 800px;
@@ -994,117 +1140,16 @@ a{
         
     }
 
-
-    
-
-
-
-}
-
-@media (min-width:951px) AND (max-width:1024px){
-
-    .titulo{
-        margin-left: 100px;
-        font-size:18px;
-    }
-
-    .card--sub--1{
-        margin-left:130px;
-    }
-
-    .card--sub--1, .card--sub--2{
-        margin-left:80px;
-        width:250px;
-        
-    }
-
-    .bem-vindo, .sobre{
-        font-size:14px;
-    }
-
-    aside{
-   
-        /* grid-row-start: 1;
-        grid-row-end: 3; */
-        
-        grid-area: 1 / 1 / 3 / 1;
-        display: flex;
-        flex-direction: column;
-        justify-content:baseline;
-        width: 200px;
-        height: 700px;
-        background-color: #0388d1;
-        position: fixed;
-        
-        
-    }
-
-
-    .menu, nav ul a{
-        font-size: 20px;
+    #sair--mobile{
+        display: none;
     }
     
 
 
+
 }
 
-@media (min-width:900px) AND (max-width:950px){
-
-    header{
-        margin-left: -600px;
-        
-    }
-
-    label{
-        padding:10px;
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 12px;
-        font-weight: 600;
-    }
-
-    .titulo{
-        margin-left: 600px;
-        font-size:18px;
-    }
-
-    .card--sub--1{
-        margin-left:140px;
-    }
-
-    .card--sub--1, .card--sub--2{
-        margin-left:120px;
-        width:250px;
-        
-    }
-
-    .bem-vindo, .sobre{
-        font-size:12px;
-    }
-
-    .menu nav ul, aside{  
-        display: flex;
-        flex-direction: column;
-        justify-content:baseline;
-        position: absolute;
-        z-index: 99;
-        background-color: rgba(3, 136, 209, 0.71);
-        height: calc(100vh);
-        width: 220px;
-        left: 0;
-        
-    } 
-
-    aside{
-        display:flex;
-     }
-
-     .menu, nav ul a{
-        font-size: 20px;
-    }
-   
-}
-
-@media (min-width:768px) AND (max-width:899px){
+@media (min-width:992px) AND (max-width:1024px){
 
     header{
         margin-left: -850px;
@@ -1115,12 +1160,224 @@ a{
         margin-top: 10px;
     }
 
-    .sobre{
+  
+    .menu-opener{
+        margin-top:-10px;
+        margin-right: -130px;
+        display:block;
+    }
+
+    .menu--opener1,.menu--opener2,.menu--opener3{
+        width:40px;
+        padding:4px;
+        border-bottom:4px solid;
+        display:block;
+        
+    }
+
+     section{
+        
+        margin-left:-290px;
+    }
+
+    .form{
+        width: 700px;
+    }
+
+    .menu nav ul, aside{
+ 
+        
+        
+        display: flex;
+        flex-direction: column;
+        justify-content:baseline;
+        position: absolute;
+        z-index: 99;
+        background-color: rgba(3, 136, 209, 0.71);
+        width: 220px;
+        height: calc(100vh);
+        left: 0;
+        
+    } 
+
+  
+    .painelCards{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+     .card--sub--1, .card--sub--2{
+        width:400px;
+        margin-right: 30px;
+        
+    }
+
+
+
+ .menu{
+        margin-top: 120px;
+        margin-left: -20px;
+        /* background-color: red; */
+    }
+
+    
+    aside{
+        display:none;
+     }
+
+     #sair--mobile{
         display:none;
     }
 
+    .titulo{
+        margin-left: 450px;
+        font-size:16px;
+    }
+
+    .bem-vindo{
+        font-size:12px;
+        margin-right: -200px;
+    }
+
+        #sair--mobile{
+            display: block;
+        }
+        
+        .sair{
+        display: none;
+        }
+
+}
+
+@media (min-width:951px) AND (max-width:991px){
+
+    header{
+        margin-left: -850px;
+        
+    }
+
+    .header--prod{
+        margin-top: 10px;
+    }
+
+  
     .menu-opener{
         margin-top:-10px;
+        margin-right: -130px;
+        display:block;
+    }
+
+    .menu--opener1,.menu--opener2,.menu--opener3{
+        width:40px;
+        padding:4px;
+        border-bottom:4px solid;
+        display:block;
+        
+    }
+
+     section{
+        
+        margin-left:-290px;
+    }
+
+    .form{
+        width: 600px;
+    }
+
+    .menu nav ul, aside{
+ 
+        
+        
+        display: flex;
+        flex-direction: column;
+        justify-content:baseline;
+        position: absolute;
+        z-index: 99;
+        background-color: rgba(3, 136, 209, 0.71);
+        width: 220px;
+        height: calc(100vh);
+        left: 0;
+        
+    } 
+
+  
+    .painelCards{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+     .card--sub--1, .card--sub--2{
+        width:400px;
+        margin-right: 30px;
+        
+    }
+
+
+
+ .menu{
+        margin-top: 120px;
+        margin-left: 180px;
+        /* background-color: red; */
+    }
+
+    
+    aside{
+        display:none;
+     }
+
+     #sair--mobile{
+        display:none;
+    }
+
+    .titulo{
+        margin-left: 450px;
+        font-size:16px;
+    }
+
+    .bem-vindo{
+        font-size:12px;
+        margin-right: -200px;
+    }
+
+        #sair--mobile{
+            display: block;
+        }
+        
+        .sair{
+        display: none;
+        }
+
+}
+
+@media (min-width:900px) AND (max-width:950px){
+
+    header{
+        margin-left: -850px;
+        
+    }
+
+    .header--prod{
+        margin-top: 10px;
+    }
+
+    .titulo{
+        margin-left: 440px;
+        font-size:18px;
+    }
+    
+    .bem-vindo{
+        font-size:12px;
+        margin-right: -130px;
+    }
+
+
+    .menu-opener{
+        margin-top:-10px;
+        margin-right: -130px;
         display:block;
     }
 
@@ -1148,6 +1405,129 @@ a{
         left: 0;
         
     } 
+
+    .menu{
+        margin-top: 120px;
+        margin-left: 200px;
+        /* background-color: red; */
+    }
+    
+    .painelCards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+    }
+    
+     .card--sub--1, .card--sub--2{
+        width:400px;
+        margin-left:40px;
+        margin-top: 20px;
+
+        
+    }
+
+    
+    aside{
+        display:none;
+     }
+
+     
+    #sair--mobile{
+    display: block;
+    }
+
+    .sair{
+    display: none;
+    }
+}
+
+@media (min-width:768px) AND (max-width:899px){
+
+    header{
+        margin-left: -850px;
+        
+    }
+
+    .header--prod{
+        margin-top: 10px;
+    }
+
+    section{
+        
+        margin-left:-900px;
+        height: 100%;
+    }
+
+    .form{
+        width: 875px;
+        margin-left: 610px;
+    }
+    .menu-opener{
+        margin-top:-10px;
+        margin-right: -100px;
+        display:block;
+    }
+
+    .menu--opener1,.menu--opener2,.menu--opener3{
+        width:40px;
+        padding:4px;
+        border-bottom:4px solid;
+        display:block;
+        
+    }
+
+    .titulo{
+        margin-left:500px
+    }
+
+    .bem-vindo{
+        font-size:12px;
+        margin-right: -180px;
+    }
+
+
+    .menu nav ul, aside{
+ 
+        
+        
+        display: flex;
+        flex-direction: column;
+        justify-content:baseline;
+        position: absolute;
+        z-index: 99;
+        background-color: rgba(3, 136, 209, 0.71);
+        width: 220px;
+        height: calc(100vh);
+        left: 0;
+        
+    } 
+
+    .menu{
+        margin-top: 120px;
+        margin-left: 180px;
+        /* background-color: red; */
+    }
+    
+    .painelCards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin-top: 50px;
+
+    }
+    
+     .card--sub--1, .card--sub--2{
+        width:400px;
+        margin-left:40px;
+        margin-top: 20px;
+
+        
+    }
+
     
     aside{
         display:none;
@@ -1183,6 +1563,20 @@ a{
     }
 
 
+   /* .sair--texto{
+    display: none;
+   } */
+
+
+   #sair--mobile{
+    display: block;
+   }
+
+   .sair{
+    display: none;
+   }
+
+
 }
 
 @media (min-width:700px) AND (max-width:767px){
@@ -1205,8 +1599,15 @@ a{
 
     section{
         
-        margin-left:-600px;
+        margin-left:-900px;
+        height: 100%;
     }
+
+    .form{
+        width: 630px;
+        margin-left: 730px;
+    }
+
 
     .menu, nav ul li{
         padding-bottom:20px;
@@ -1218,7 +1619,7 @@ a{
     }
 
     .titulo{
-        margin-left: 800px;
+        margin-left: 600px;
         font-size:18px;
     }
     
@@ -1265,16 +1666,17 @@ a{
     }
 
     .card--sub--1, .card--sub--2{
-        width:250px;
+        width:400px;
+        margin-left:300px;
+
         
     }
 
-    .card--sub--1{
-        margin-left:400px;
-    }
+  
 
     .card--sub--2{
-        margin-right:10px;
+        margin-top: 20px;    
+    
     }
 
 
@@ -1306,6 +1708,8 @@ a{
         margin-left: 10px;
     }
 
+
+ 
    
 
    /* a classe a baixo é chamada no arquivo index.php para chamar o menu. OBS:
@@ -1327,6 +1731,20 @@ a{
         left: 0;
         
     } 
+
+    .menu{
+        margin-top: 120px;
+        margin-left: 180px;
+        /* background-color: red; */
+    }
+    
+    .painelCards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
     
     aside{
         display:none;
@@ -1376,6 +1794,17 @@ a{
         display: block;
     } */
 
+
+    #sair--mobile{
+        display: block;
+       }
+    
+       .sair{
+        display: none;
+       }
+  
+
+
 }
 
 @media (min-width:200px) AND (max-width:699px){
@@ -1405,9 +1834,16 @@ a{
 
     }
 
+    .painelCards{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 
     .card--sub--1, .card--sub--2{
         margin-left:90px;
+        max-width: 300px;
            
     }
 
@@ -1424,18 +1860,16 @@ a{
     }
    
     .titulo{
-        font-size:12px;
-        margin-left:90px;
+        font-size:11px;
+        margin-left:120px;
     }
+   
 
-    .bem-vindo, .sobre{
+    .bem-vindo{
         font-size:8px;
     }
 
-    .sobre{
-        display:none;
-    }
-
+   
     .menu-opener{
         margin-top:-10px;
         display:block;
@@ -1460,14 +1894,24 @@ a{
         position: absolute;
         z-index: 99;
         background-color: rgba(3, 136, 209, 0.71);
+        /* background-color: red; */
         width: 220px;
         height: calc(100vh);
         left: 0;
         
     } 
+
+    .menu{
+        margin-top: 120px;
+        margin-left: 180px;
+        /* background-color: red; */
+    }
+
+   
     
     aside{
         display:none;
+        
      }
 
 
@@ -1494,7 +1938,10 @@ a{
         
     }
 
-    
+    .card--sub--1,.card--sub--2{
+       max-width: 260px;
+        
+    }
 
     .cancelButton, .cadastrarButton{
         margin-left:30px;
@@ -1613,14 +2060,10 @@ a{
        
     }
 
-    form{
-        
-        margin-left:100px;
-    }
 
-
-    form, label {
-        margin-top: 20px;
+    .form{
+        max-width: 400px;
+        margin-top: 10px;
     }
 
     .WindowAreaInserir{
@@ -1643,5 +2086,30 @@ a{
         margin-top: 10px;
     }
 
+    .contato, .linkedin, .git{
+        font-size: 12px;
+    }
 
+    /* remover o sublinhado dos icones da pagina (sobre)*/
+    .iconesSobre2 a {
+        text-decoration: none;
+    }
+
+    .creditos{
+        font-size: 12px;
+    }
+
+
+
+   #sair--mobile{
+    display: block;
+   }
+
+   .sair{
+    display: none;
+   }
+
+
+ 
+   
 }

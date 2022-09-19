@@ -1,3 +1,14 @@
+<?php
+session_start();
+
+// var_dump($_SESSION);
+require 'model/con.php';
+
+if(empty($_SESSION['lg'])) {
+    header("Location: home.php");
+    exit;
+}
+?>
 
 
 <!DOCTYPE html>
@@ -35,9 +46,13 @@ $(function () {
 
 
 <div class="container--pessoal">
-    <header>
+    <header class="header--info">
             <div class="titulo">controle de materiais -- defend--</div>
-            <div class="bem-vindo">Bem vindo:Fulano</div>
+            <div class="bem-vindo">Bem vindo:<?php echo $_SESSION['nome']; ?></div>
+            <div class="sair"><a href="sair.php"><i class="fa-solid fa-right-from-bracket"></i>sair</a> </div>
+
+
+
           
             <!-- <div class="sobre">Sobre</div> -->
           <div class="menu-opener">
@@ -51,7 +66,7 @@ $(function () {
        
         <div id="layoutSidenav">
                   <div id="layoutSidenav_nav">
-                      <nav class="sb-sidenav  sb-sidenav-dark"  style="background-color: #0388d1; width:180px;" id="sidenavAccordion">
+                      <nav class="sb-sidenav"  style="width:180px;" id="sidenavAccordion">
                           <div class="sb-sidenav-menu">
                               <div class="nav" style="font-size:22px">                                                                                            
                                   <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
@@ -99,18 +114,31 @@ $(function () {
                                           </a>                                      
                                       </nav>
                                 </div>
-                                <a class="nav-link collapsed" href="#" style="color: #ffffff;" data-toggle="collapse" data-target="#dashboard123" aria-expanded="false" aria-controls="dashboard123">
-                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-address-card"></i>
+                                <div class="nav" style="font-size:22px">                                                                                            
+                                  <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
+                                  <a class="nav-link" href="sobre.php" style="color: #ffffff;" >
+                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-table-columns"></i>
                                       Sobre
                                       <div class="sb-sidenav-collapse-arrow"></div>
                                   </a>
-                                  <div class="collapse" id="dashboard" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
-                                      <!-- <nav class="sb-sidenav-menu-nested nav">
-                                          <a class="nav-link" id="texto" href="cad-cliente.php">Produtos</a>
-                                          <a class="nav-link" id="texto" href="cad-veiculo.php">Lancamentos</a>                                                                                
-                                      </nav> -->
+                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <nav class="sb-sidenav-menu-nested nav">
+                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
+                                      </nav>
+                                  </div> 
+                                  <div class="nav" id="sair--mobile" style="font-size:22px">                                                                                            
+                                  <!--logo menu <img style="width:200px;height:150px;padding: 10px;  color:#000000; " src="img/logo1.png"> -->
+                                  <a class="nav-link" href="sair.php" style="color: #ffffff;" >
+                                      <div class="sb-nav-link-icon"></div><i class="fa-solid fa-right-from-bracket"></i>
+                                      Sair
+                                      
+                                      <div class="sb-sidenav-collapse-arrow"></div>
+                                  </a>
+                                  <div class="collapse" id="dashboardteste" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                      <nav class="sb-sidenav-menu-nested nav">
+                                          <!-- <a class="nav-link" id="texto" href="index.php">Produtos</a> -->
+                                      </nav>
                                   </div>  
-                                 
                                 
                                   
                           
@@ -139,10 +167,13 @@ $(function () {
             require 'controller/con.php';
 
             $stmt = $pdo->query('                    
-            SELECT codProd,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro
+            SELECT codProd,nomePessoa,nomeProd,dataInicialCadastro,dataFinalCadastro,situacaoCadastro,dataBaixa,
+            statusMaterial,nomeEmpresa
             FROM produto prod
             INNER JOIN lancamento l on prod.codProd = l.produto_codProd
-            INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa;
+            INNER JOIN pessoa p on p.codPessoa = l.pessoa_codPessoa
+            inner join empresaServico emp on l.empresaServico_codEmpresa = emp.codEmpresa
+            ;
             ');
 
                 ?>
@@ -151,12 +182,14 @@ $(function () {
                     <table class="table align-middle">
                       <thead>
                         <tr>
-                        <td>Codigo</td>
-                            <td>Nome</td>
+                            <td>Codigo</td>
+                            <td>Nome Pessoa</td>
                             <td>Nome Produto</td>
-                            <td>Data Inicial</td>
-                            <td>Data Final</td>
-                            <td>situacao</td>
+                            <td>Nome da Empresa Concerto</td>
+                            <td>Data Retirada</td>
+                            <td>Data Baixa</td>
+                            <td>status</td>
+                            <td>situacao Prod</td>
                         </tr>
                       </thead>
                 <?php 
@@ -171,12 +204,12 @@ $(function () {
                             <td><?php echo $row['codProd']; ?></td>
                             <td><?php echo $row['nomePessoa']; ?></td>
                             <td><?php echo $row['nomeProd']; ?></td>
+                            <td><?php echo $row['nomeEmpresa']; ?></td>
                             <td><?php echo date('d/m/Y', strtotime($row['dataInicialCadastro'])); ?></td>
-                            <td><?php echo date('d/m/Y', strtotime($row['dataFinalCadastro'])); ?></td>
+                            <!-- <td><?php echo date('d/m/Y', strtotime($row['dataBaixa'])); ?></td> -->
+                            <td><?php echo $row['dataBaixa']; ?></td>
+                            <td><?php echo $row['statusMaterial']; ?></td>
                             <td><?php echo $row['situacaoCadastro']; ?></td>
-
-
-
 
                         </tr>
                     </tbody>    
