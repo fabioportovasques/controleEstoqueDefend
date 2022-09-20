@@ -1,5 +1,8 @@
+<<<<<<< HEAD
 //implantacao olho mágico na senha
 
+=======
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 var password = $('#password');
 var olho= $("#olho");
 
@@ -23,9 +26,12 @@ bot.addEventListener('click', function(e){
     e.preventDefault();
     console.log('clicou');
 
+<<<<<<< HEAD
     //valida campos em branco
 
 
+=======
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
     let tcampo = $('#user').val().length;
     let tcampo2 = $('#password').val().length;
 
@@ -44,6 +50,7 @@ bot.addEventListener('click', function(e){
         aviso2.innerHTML="preencha o campo com a senha";
         document.querySelector('#alert-preencher-password').style.display="block";
             $('#password').focus();
+<<<<<<< HEAD
     }else {
         $('#bot').on('click', function(){
 
@@ -134,4 +141,10 @@ bot.addEventListener('click', function(e){
 })
 
 
+=======
+    }
+})
+
+//valida campos em branco
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 

@@ -12,7 +12,11 @@
 <!-- link para icones -->
 <script src="https://kit.fontawesome.com/0518f3ccf0.js" crossorigin="anonymous"></script>
 
+<<<<<<< HEAD
     <title>Login</title>
+=======
+    <title>Document</title>
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 </head>
 <body>
 
@@ -20,16 +24,27 @@
         <!-- <img src="assets/images/carro.png" id="imgCarro" width="200px" height="80px"> -->
             <div class="form--login">
                     <form id="login">
+<<<<<<< HEAD
 
                     <div class="login--login">Login</div>
                         <label for="">usuario</label>
                         <input type="text" name="user" id="user" class="form-control" placeholder="Insira seu usuario">
                         <label for="">Senha</label>
                         <input type="password" name="password" id="password" class="form-control" placeholder="Insira sua senha">
+=======
+                        <label for="">usuario</label>
+                        <input type="text" name="user" id="user" placeholder="Insira seu usuario">
+                        <div class="alerta" id="alert-preencher-user"></div>
+
+                        <label for="">Senha</label>
+                        <input type="password" name="password" id="password" placeholder="Insira sua senha">
+                        <div class="alerta" id="alert-preencher-password"></div>
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 
                         <span><img src="assets/images/olho.png" alt="" id="olho"></span>
 
                         <button class="btn btn-success" id="bot">Entrar</button>
+<<<<<<< HEAD
 
                         <div class="alerta" id="alert-preencher-user"></div>
                         <div class="alerta" id="alert-preencher-password"></div>
@@ -45,10 +60,14 @@
                         <div class="erro"></div>
                         <div class="sucesso"></div>
                     </div>
+=======
+                    </form>
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
             </div>
     
 
 
+<<<<<<< HEAD
            
 
     <!--Erro ao cadastrar -->
@@ -72,6 +91,18 @@
 
 
 
+=======
+            <div class="status">
+
+                    <div class="spinner-border" id="load" role="status">
+                    <div class="visually-hidden">Loading...</div>
+                    </div>
+                    <div class="erro"></div>
+                    <div class="sucesso"></div>
+            </div>
+
+    
+>>>>>>> 44251b39324961b2ccc3c0383707950d642de849
 <script src="assets/js/home.js"></script>
 </body>
 </html>
