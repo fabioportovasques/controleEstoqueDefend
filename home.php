@@ -21,7 +21,7 @@
             <div class="form--login">
                     <form id="login">
 
-                    <div class="login">Login</div>
+                    <div class="login--login">Login</div>
                         <label for="">usuario</label>
                         <input type="text" name="user" id="user" class="form-control" placeholder="Insira seu usuario">
                         <label for="">Senha</label>

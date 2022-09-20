@@ -180,7 +180,7 @@ $(function () {
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="prod">Cod Produto</label><span class="campo--obrigatorio">*</span>
-                                            <input type="text" name="produto_codProd" class="form-control" id="codProd" placeholder="Codigo do produto">
+                                            <input type="number" name="produto_codProd" class="form-control" id="codProd" placeholder="Codigo do produto">
                                             <!-- <input type="hidden" value="12" name="produto_codProd">  -->
                                             <div class="alerta" id="alert-preencher-codProd"></div>
 

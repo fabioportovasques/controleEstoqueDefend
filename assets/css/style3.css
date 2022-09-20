@@ -612,9 +612,9 @@ a{
 	left: 50%;
 	top: 50%;
     width: 600px;
-    height: 320px;
+    height: 400px;
     margin-left:-300px;
-    margin-top:-160px;
+    margin-top:-200px;
     padding: 10px;
     display: flex;
     flex-direction: column;
@@ -649,8 +649,15 @@ a{
 
 #login{
     font-weight: 600;
+    font-size: 30px;
 }
+.login--login{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #20B2AA;
 
+}
 
 /* Estiliza o link de sair*/
 
